@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Interactable
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2769249627
+    locked: 0
+  - name: InteractiveStatic
+    uniqueID: 1767693215
+    locked: 0
+  - name: Level
+    uniqueID: 2751606871
+    locked: 0
+  - name: Loot
+    uniqueID: 1926277443
+    locked: 0
+  - name: Creatures
+    uniqueID: 2125527613
+    locked: 0
+  - name: Frontground
+    uniqueID: 1813066105
+    locked: 0
