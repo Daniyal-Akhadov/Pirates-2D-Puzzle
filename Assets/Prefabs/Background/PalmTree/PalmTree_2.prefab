@@ -131,11 +131,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _isLoop: 1
-  _sprites:
-  - {fileID: -1658381649, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-  - {fileID: -1221157383, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-  - {fileID: -1526031797, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-  - {fileID: -194451988, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+  _sprites: []
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clips:
+  - _name: palm_tree_2
+    _sprites:
+    - {fileID: -1658381649, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+    - {fileID: -1221157383, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+    - {fileID: -1526031797, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+    - {fileID: -194451988, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+    _isLoop: 1
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []

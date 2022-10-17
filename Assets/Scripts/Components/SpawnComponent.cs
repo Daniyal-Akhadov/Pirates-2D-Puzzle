@@ -13,5 +13,12 @@ namespace PixelCrew.Components
             var newObject = Instantiate(_target, _spawnPoint.position, Quaternion.identity);
             newObject.transform.localScale = _spawnPoint.lossyScale;
         }
+
+        public void Spawn(Vector3 position)
+        {
+            var newObject = Instantiate(_target, position, Quaternion.identity);
+            newObject.SetActive(true);
+            newObject.transform.localScale = _spawnPoint.lossyScale;
+        }
     }
 }

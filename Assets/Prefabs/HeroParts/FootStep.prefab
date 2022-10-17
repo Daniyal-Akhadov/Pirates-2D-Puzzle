@@ -99,27 +99,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _isLoop: 0
-  _sprites:
-  - {fileID: 21300000, guid: 977f650e1d8de1d4c8a53254c8da072d, type: 3}
-  - {fileID: 21300000, guid: 71a675e56f44bd94f8f65cadcdcfa8a3, type: 3}
-  - {fileID: 21300000, guid: 074b8f0d8a9b6834cba52c2046a24d4c, type: 3}
-  - {fileID: 21300000, guid: 8713749a9e3ab0f41a197432a04e2f61, type: 3}
-  - {fileID: 21300000, guid: 3c1f0277ff49f4c4e98f46032b841e66, type: 3}
+  _sprites: []
   _onComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3818121000757496554}
-        m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _clips:
+  - _name: foot_step
+    _sprites:
+    - {fileID: 21300000, guid: 977f650e1d8de1d4c8a53254c8da072d, type: 3}
+    - {fileID: 21300000, guid: 71a675e56f44bd94f8f65cadcdcfa8a3, type: 3}
+    - {fileID: 21300000, guid: 074b8f0d8a9b6834cba52c2046a24d4c, type: 3}
+    - {fileID: 21300000, guid: 8713749a9e3ab0f41a197432a04e2f61, type: 3}
+    - {fileID: 21300000, guid: 3c1f0277ff49f4c4e98f46032b841e66, type: 3}
+    _isLoop: 0
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3818121000757496554}
+          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+            Assembly-CSharp
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3818121000757496548
 GameObject:
   m_ObjectHideFlags: 0

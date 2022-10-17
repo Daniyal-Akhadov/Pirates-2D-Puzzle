@@ -6,6 +6,7 @@ namespace PixelCrew.Hero
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(HeroCoinScore))]
+    [RequireComponent(typeof(HeroJumper))]
     public class HeroHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] private int _health = 5;
@@ -17,16 +18,19 @@ namespace PixelCrew.Hero
         private Animator _animator;
         private Rigidbody2D _rigidbody;
         private HeroCoinScore _coinScore;
+        private HeroJumper _jumper;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _coinScore = GetComponent<HeroCoinScore>();
+            _jumper = GetComponent<HeroJumper>();
             _animator = GetComponentInChildren<Animator>();
         }
 
         private void PushAway()
         {
+            _jumper.StopJumping();
             Vector2 velocity = _rigidbody.velocity;
             velocity.y = 0f;
             _rigidbody.velocity = new Vector2(velocity.x, _pushAwayForce);

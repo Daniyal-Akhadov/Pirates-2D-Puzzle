@@ -1,3 +1,4 @@
+using System;
 using PixelCrew.Components;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +15,8 @@ namespace PixelCrew
         private Rigidbody2D _rigidbody;
         private Animator _animator;
         private bool _isGround;
-        private bool _isJump;
+        private bool _isJumpPress;
+        private bool _isJumping;
         private bool _isDoubleJumpAvailable;
         private int _currentClick;
 
@@ -33,9 +35,9 @@ namespace PixelCrew
         {
             Vector2 velocity = _rigidbody.velocity;
 
-            if (_isJump == true)
+            if (_isJumpPress == true)
             {
-                bool isFall = velocity.y <= 0.01f;
+                bool isFall = velocity.y <= 0.02f;
                 bool isFirstJump = _isGround == true && isFall == true;
                 bool isSecondJump = _isDoubleJumpAvailable == true && isFall == true;
 
@@ -53,7 +55,7 @@ namespace PixelCrew
             }
             else
             {
-                if (velocity.y > 0f)
+                if (velocity.y > 0f && _isJumping == true)
                 {
                     _rigidbody.velocity = new Vector2(velocity.x, velocity.y * StopJumpingMultiplier);
                 }
@@ -61,6 +63,21 @@ namespace PixelCrew
 
             _animator.SetFloat(HeroAnimations.VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(HeroAnimations.IsGround, _isGround);
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            var contacts = col.contacts;
+
+            Vector2 normal = contacts[0].normal;
+
+            if (Vector3.Angle(Vector3.up, normal) < AvailableAngleForJumping)
+            {
+                if (_rigidbody.velocity.y < VerticalVelocityToShowFallDust || _currentClick >= MaxJumpCount)
+                {
+                    _fallDustSpawner.Spawn();
+                }
+            }
         }
 
         private void OnCollisionStay2D(Collision2D col)
@@ -73,14 +90,11 @@ namespace PixelCrew
 
                 if (Vector3.Angle(Vector3.up, normal) < AvailableAngleForJumping)
                 {
-                    if (_rigidbody.velocity.y < VerticalVelocityToShowFallDust || _currentClick >= MaxJumpCount)
-                    {
-                        _fallDustSpawner.Spawn();
-                    }
-
+                    _isJumping = false;
                     _isDoubleJumpAvailable = true;
                     _currentClick = 0;
                     _isGround = true;
+                    return;
                 }
             }
         }
@@ -93,13 +107,19 @@ namespace PixelCrew
         private void AddForce()
         {
             _onJumped?.Invoke();
+            _isJumping = true;
             _rigidbody.velocity += Vector2.up * _force;
         }
 
         public void Jump(bool pressed)
         {
-            _isJump = pressed;
+            _isJumpPress = pressed;
             _currentClick++;
+        }
+
+        public void StopJumping()
+        {
+            _isJumping = false;
         }
     }
 }

@@ -107,6 +107,18 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clips:
+  - _name: coin_explosion
+    _sprites:
+    - {fileID: 148798652, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: 2049219455, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: 675573985, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: 1791009677, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    _isLoop: 0
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &7963256783947592432
 GameObject:
   m_ObjectHideFlags: 0

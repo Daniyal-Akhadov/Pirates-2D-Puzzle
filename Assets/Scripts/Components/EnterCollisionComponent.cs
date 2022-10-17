@@ -7,12 +7,12 @@ namespace PixelCrew.Components
     public class EnterCollisionComponent : MonoBehaviour
     {
         [SerializeField] private string _tag = "Player";
-        [SerializeField] private EnterEvent _action;
+        [SerializeField] private EnterEvent _actionWithArgument;
 
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.CompareTag(_tag))
-                _action?.Invoke(col.gameObject);
+                _actionWithArgument?.Invoke(col.gameObject);
         }
     }
 

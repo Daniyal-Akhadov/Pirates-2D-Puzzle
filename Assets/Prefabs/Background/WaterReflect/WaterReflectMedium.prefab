@@ -107,6 +107,18 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clips:
+  - _name: water_reflect_medium
+    _sprites:
+    - {fileID: -2076358991, guid: 2839de88641ffe3458e11ce161f495ad, type: 3}
+    - {fileID: -1531942074, guid: 2839de88641ffe3458e11ce161f495ad, type: 3}
+    - {fileID: 914432731, guid: 2839de88641ffe3458e11ce161f495ad, type: 3}
+    - {fileID: 343348383, guid: 2839de88641ffe3458e11ce161f495ad, type: 3}
+    _isLoop: 1
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &6285233614338954533
 GameObject:
   m_ObjectHideFlags: 0

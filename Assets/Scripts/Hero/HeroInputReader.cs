@@ -9,7 +9,7 @@ namespace PixelCrew
     public class HeroInputReader : MonoBehaviour
     {
         private HeroMovement _movement;
-        private HeroJumper _jumper; 
+        private HeroJumper _jumper;
         private HeroInteract _interact;
         private HeroInputAction _input;
 

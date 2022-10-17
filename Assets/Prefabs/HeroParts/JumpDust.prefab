@@ -99,28 +99,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _isLoop: 0
-  _sprites:
-  - {fileID: 21300000, guid: 0b63db3a52801ea49af588c54e21baef, type: 3}
-  - {fileID: 21300000, guid: 1e8c29c2a980a384b8bc5d86afa394e7, type: 3}
-  - {fileID: 21300000, guid: 2260dcc7df36c5e47bb8f75d23bbdb69, type: 3}
-  - {fileID: 21300000, guid: c28faa75b37c4684db6ecc36262d5713, type: 3}
-  - {fileID: 21300000, guid: 22103924dba82ec4d9544132abad4450, type: 3}
-  - {fileID: 21300000, guid: 029f800650ff8f84c97294c69d37ed7d, type: 3}
+  _sprites: []
   _onComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3818121000757496554}
-        m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _clips:
+  - _name: jump_dust
+    _sprites:
+    - {fileID: 21300000, guid: 0b63db3a52801ea49af588c54e21baef, type: 3}
+    - {fileID: 21300000, guid: 1e8c29c2a980a384b8bc5d86afa394e7, type: 3}
+    - {fileID: 21300000, guid: 2260dcc7df36c5e47bb8f75d23bbdb69, type: 3}
+    - {fileID: 21300000, guid: c28faa75b37c4684db6ecc36262d5713, type: 3}
+    - {fileID: 21300000, guid: 22103924dba82ec4d9544132abad4450, type: 3}
+    - {fileID: 21300000, guid: 029f800650ff8f84c97294c69d37ed7d, type: 3}
+    _isLoop: 0
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3818121000757496554}
+          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+            Assembly-CSharp
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3818121000757496548
 GameObject:
   m_ObjectHideFlags: 0

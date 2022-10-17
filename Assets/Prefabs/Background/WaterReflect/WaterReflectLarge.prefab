@@ -130,12 +130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _isLoop: 1
-  _sprites:
-  - {fileID: 1045559228, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
-  - {fileID: -227418511, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
-  - {fileID: -963570693, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
-  - {fileID: 1358562042, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
+  _isLoop: 0
+  _sprites: []
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clips:
+  - _name: water_reflect_large
+    _sprites:
+    - {fileID: 1045559228, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
+    - {fileID: -227418511, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
+    - {fileID: -963570693, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
+    - {fileID: 1358562042, guid: e4df49ff8e22a324194d63e07c1a73a9, type: 3}
+    _isLoop: 1
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []

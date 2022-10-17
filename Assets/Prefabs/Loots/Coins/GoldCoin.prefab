@@ -98,12 +98,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _isLoop: 1
-  _sprites:
-  - {fileID: 661652917, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: -1635871084, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: 891646555, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: -1919261987, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+  _clips:
+  - _name: gold_coin
+    _sprites:
+    - {fileID: 661652917, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: -1635871084, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: 891646555, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    - {fileID: -1919261987, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
+    _isLoop: 1
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -246,31 +252,31 @@ PrefabInstance:
     m_TransformParent: {fileID: 2191082124486093145}
     m_Modifications:
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2670542452171974189}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DestroyObject
       objectReference: {fileID: 0}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4830759946885264392, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}
-      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: _clips.Array.data[0]._onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5161975537761329147, guid: f13bfc6a9ff003b4b8ce4bb470f4e2ad, type: 3}

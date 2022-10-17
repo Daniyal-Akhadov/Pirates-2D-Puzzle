@@ -98,15 +98,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _isLoop: 1
-  _sprites:
-  - {fileID: -310125453, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
-  - {fileID: -1564834804, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
-  - {fileID: -1547409401, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
-  - {fileID: -236691763, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
+  _isLoop: 0
+  _sprites: []
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clips:
+  - _name: water_reflect_small
+    _sprites:
+    - {fileID: -310125453, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
+    - {fileID: -1564834804, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
+    - {fileID: -1547409401, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
+    - {fileID: -236691763, guid: 22e47911f8ee2634a9ab7ecb763cbb4c, type: 3}
+    _isLoop: 1
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &5796807882718102610
 GameObject:
   m_ObjectHideFlags: 0

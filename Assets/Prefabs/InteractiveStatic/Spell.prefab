@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5553134036589563795
+--- !u!1 &1310277209611340951
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5553134036589563794}
-  - component: {fileID: 5553134036589563792}
-  - component: {fileID: 5553134036589563793}
+  - component: {fileID: 1310277209611340950}
+  - component: {fileID: 1310277209611340945}
+  - component: {fileID: 1310277209611340944}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5553134036589563794
+--- !u!4 &1310277209611340950
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553134036589563795}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1310277209611340951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5553134038085098621}
+  m_Father: {fileID: 1310277211361811953}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5553134036589563792
+--- !u!212 &1310277209611340945
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553134036589563795}
+  m_GameObject: {fileID: 1310277209611340951}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,51 +71,49 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1525717669
-  m_SortingLayer: 1
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 10657481, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+  m_SortingLayerID: 1926277443
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8d9f7565f7928d94f87c87aad501ad8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5553134036589563793
+--- !u!114 &1310277209611340944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553134036589563795}
+  m_GameObject: {fileID: 1310277209611340951}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c64e51b498ef064991b5fb1056b4a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _isLoop: 0
-  _sprites: []
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
   _clips:
-  - _name: palm_tree_1
+  - _name: spell
     _sprites:
-    - {fileID: 10657481, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-    - {fileID: 1109308150, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-    - {fileID: -189185629, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
-    - {fileID: -582588777, guid: 3b68410afe88bf341b14da7825797d13, type: 3}
+    - {fileID: 21300000, guid: 469077ff957c7a749926aa9570c6d174, type: 3}
+    - {fileID: 21300000, guid: 0972e257acc4ebf47abe502c06ed87de, type: 3}
+    - {fileID: 21300000, guid: e38f5531de2789343a49adc478914bb1, type: 3}
+    - {fileID: 21300000, guid: 131632e8575db7947b84bdb930827f0c, type: 3}
+    - {fileID: 21300000, guid: 252a2fef6d3847f44973e20467ef6a5f, type: 3}
+    - {fileID: 21300000, guid: 0e48535d062e9064a8d89aeb07f0c491, type: 3}
+    - {fileID: 21300000, guid: 8d9f7565f7928d94f87c87aad501ad8c, type: 3}
     _isLoop: 1
     _allowNextClip: 0
     _onCompleted:
       m_PersistentCalls:
         m_Calls: []
---- !u!1 &5553134038085098622
+--- !u!1 &1310277211361811958
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,27 +121,68 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5553134038085098621}
+  - component: {fileID: 1310277211361811953}
+  - component: {fileID: 1310277211361811955}
+  - component: {fileID: 1310277211361811952}
   m_Layer: 0
-  m_Name: PalmTree_1
+  m_Name: Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5553134038085098621
+--- !u!4 &1310277211361811953
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553134038085098622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5553134036589563794}
+  - {fileID: 1310277209611340950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1310277211361811955
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1310277211361811952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c2b762549e482c9a4e002dbd877f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _addHealthValue: 1

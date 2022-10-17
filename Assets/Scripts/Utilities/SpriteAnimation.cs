@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,29 +7,39 @@ namespace PixelCrew.Utilities
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimation : MonoBehaviour
     {
-        [SerializeField] private int _frameRate = 10;
-        [SerializeField] private bool _isLoop;
-        [SerializeField] private Sprite[] _sprites;
-        [SerializeField] private UnityEvent _onComplete;
+        [SerializeField] [Range(1, 30)] private int _frameRate = 10;
+        [SerializeField] private AnimationClip[] _clips;
 
         private SpriteRenderer _renderer;
         private float _secondsPerFrame;
         private float _timeToUpdateSprite;
         private int _currentSpriteIndex;
+        private int _currentClipIndex;
         private bool _isStopped;
+        private bool _isPlaying = true;
 
         private const float OneSecond = 1f;
 
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
+            _secondsPerFrame = OneSecond / _frameRate;
+            StartAnimation();
         }
 
         private void OnEnable()
         {
-            _secondsPerFrame = OneSecond / _frameRate;
             _timeToUpdateSprite = Time.time;
-            _currentSpriteIndex = 0;
+        }
+
+        private void OnBecameVisible()
+        {
+            enabled = _isPlaying;
+        }
+
+        private void OnBecameInvisible()
+        {
+            enabled = false;
         }
 
         private void Update()
@@ -36,21 +47,64 @@ namespace PixelCrew.Utilities
             if (_timeToUpdateSprite > Time.time)
                 return;
 
-            _renderer.sprite = _sprites[_currentSpriteIndex++];
+            AnimationClip clip = _clips[_currentClipIndex];
+            _renderer.sprite = clip.Sprites[_currentSpriteIndex++];
             _timeToUpdateSprite += _secondsPerFrame;
 
-            if (_currentSpriteIndex >= _sprites.Length)
+            if (_currentSpriteIndex >= clip.Sprites.Length)
             {
-                if (_isLoop == true)
+                if (clip.IsLoop == true)
                 {
                     _currentSpriteIndex = 0;
                 }
                 else
                 {
-                    _onComplete?.Invoke();
-                    enabled = false;
+                    clip.OnCompleted?.Invoke();
+                    enabled = _isPlaying = clip.AllowNextClip;
+
+                    if (clip.AllowNextClip == true)
+                    {
+                        _currentSpriteIndex = 0;
+                        _currentClipIndex++;
+                        _currentClipIndex %= _clips.Length;
+                    }
                 }
             }
         }
+
+        public void SetClip(string name)
+        {
+            for (int i = 0; i < _clips.Length; i++)
+            {
+                if (_clips[i].Name == name)
+                {
+                    _currentClipIndex = i;
+                    StartAnimation();
+                }
+            }
+        }
+
+        private void StartAnimation()
+        {
+            _timeToUpdateSprite = Time.time;
+            _currentSpriteIndex = 0;
+            _isPlaying = true;
+        }
+    }
+
+    [Serializable]
+    public class AnimationClip
+    {
+        [SerializeField] private string _name;
+        [SerializeField] private Sprite[] _sprites;
+        [SerializeField] private bool _isLoop;
+        [SerializeField] private bool _allowNextClip;
+        [SerializeField] private UnityEvent _onCompleted;
+
+        public string Name => _name;
+        public Sprite[] Sprites => _sprites;
+        public bool IsLoop => _isLoop;
+        public bool AllowNextClip => _allowNextClip;
+        public UnityEvent OnCompleted => _onCompleted;
     }
 }

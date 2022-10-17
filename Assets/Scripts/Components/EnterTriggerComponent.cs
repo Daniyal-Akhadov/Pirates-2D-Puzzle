@@ -7,12 +7,14 @@ namespace PixelCrew.Components
     {
         [SerializeField] private string _tag;
         [SerializeField] private UnityEvent _action;
+        [SerializeField] private EnterEvent _actionWithArgument;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(_tag))
             {
                 _action?.Invoke();
+                _actionWithArgument?.Invoke(other.gameObject);
             }
         }
     }
