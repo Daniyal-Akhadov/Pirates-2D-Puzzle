@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: spell
+  - _name: idle
     _sprites:
     - {fileID: 21300000, guid: 469077ff957c7a749926aa9570c6d174, type: 3}
     - {fileID: 21300000, guid: 0972e257acc4ebf47abe502c06ed87de, type: 3}
@@ -113,6 +113,30 @@ MonoBehaviour:
     _onCompleted:
       m_PersistentCalls:
         m_Calls: []
+  - _name: destroy
+    _sprites:
+    - {fileID: 21300000, guid: 447299a906c8bd449af7f991072bcf4d, type: 3}
+    - {fileID: 21300000, guid: 481a118e0b094f14aa0ff59afc44bbc8, type: 3}
+    - {fileID: 21300000, guid: 6e78f9990fd3d71438fecbe925553e81, type: 3}
+    - {fileID: 21300000, guid: 4c3d03719b493d3488dbfcc70ee9024a, type: 3}
+    _isLoop: 0
+    _allowNextClip: 0
+    _onCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2678930814123837130}
+          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+            Assembly-CSharp
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1310277211361811958
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +147,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1310277211361811953}
   - component: {fileID: 1310277211361811955}
-  - component: {fileID: 1310277211361811952}
+  - component: {fileID: 6003860829538836617}
+  - component: {fileID: 8760975348560739891}
+  - component: {fileID: 2678930814123837130}
   m_Layer: 0
   m_Name: Spell
   m_TagString: Untagged
@@ -173,7 +199,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1310277211361811952
+--- !u!114 &6003860829538836617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +208,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310277211361811958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c2b762549e482c9a4e002dbd877f07, type: 3}
+  m_Script: {fileID: 11500000, guid: 57a7caeaf7bf8b9458eca6192274ea1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _addHealthValue: 1
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1310277211361811955}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1310277209611340944}
+        m_TargetAssemblyTypeName: PixelCrew.Utilities.SpriteAnimation, Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroy
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionWithArgument:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8760975348560739891}
+        m_TargetAssemblyTypeName: PixelCrew.Components.ModifyHealthComponent, Assembly-CSharp
+        m_MethodName: Apply
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8760975348560739891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75676b34c94f427e91baabb65cdf66e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 5
+--- !u!114 &2678930814123837130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f9f124db1e41b8a69fffbf55553984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1310277211361811958}
