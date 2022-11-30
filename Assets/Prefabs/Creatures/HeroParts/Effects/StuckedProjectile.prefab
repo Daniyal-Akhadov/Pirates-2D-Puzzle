@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 5446288992881085429}
   - component: {fileID: 3818121000757496554}
   - component: {fileID: 2485866782381702862}
-  - component: {fileID: 578284477358802924}
+  - component: {fileID: 5483428800694361032}
+  - component: {fileID: 2963902934819636104}
   m_Layer: 0
   m_Name: StuckedProjectile
   m_TagString: Untagged
@@ -222,9 +223,10 @@ MonoBehaviour:
   _actionWithArgument:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 578284477358802924}
-        m_TargetAssemblyTypeName: PixelCrew.Loot.ArmHeroComponent, Assembly-CSharp
-        m_MethodName: Arm
+      - m_Target: {fileID: 5483428800694361032}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Interactions.AddInventoryComponent,
+          Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -234,9 +236,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3818121000757496554}
-        m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
+--- !u!114 &5483428800694361032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818121000757496548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065e58dc5b9d4093a7257dacb97a14dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _value: 1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5446288992881085429}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3818121000232343900}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2963902934819636104}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -246,7 +289,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &578284477358802924
+      - m_Target: {fileID: 3818121000757496554}
+        m_TargetAssemblyTypeName: PixelCrew.Components.GameObjectBased.DestroyObjectComponent,
+          Assembly-CSharp
+        m_MethodName: DestroyObjectInTime
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2963902934819636104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,6 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3818121000757496548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1b077a87a0443a89e6dd41bd8fa0060, type: 3}
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}

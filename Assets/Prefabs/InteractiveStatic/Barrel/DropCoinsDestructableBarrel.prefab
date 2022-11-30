@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1088537826143494653}
   - component: {fileID: 1088537826143494654}
   - component: {fileID: 520380087039374172}
-  m_Layer: 0
+  - component: {fileID: 3230523016025604762}
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +139,18 @@ MonoBehaviour:
     _onCompleted:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1088537826143494654}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1088537826772792440}
           m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
           m_MethodName: set_enabled
@@ -151,15 +164,15 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 520380088557954780}
-          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+          m_TargetAssemblyTypeName: PixelCrew.Components.GameObjectBased.DestroyObjectComponent,
             Assembly-CSharp
-          m_MethodName: DestroyObject
-          m_Mode: 1
+          m_MethodName: DestroyObjectInTime
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 0.6
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -191,6 +204,19 @@ MonoBehaviour:
   _onClipComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3230523016025604762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088537826143494652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 4ac9fd6e317617847874df651cc691db, type: 3}
 --- !u!1 &1088537826772792446
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +233,8 @@ GameObject:
   - component: {fileID: 520380088557954782}
   - component: {fileID: 5049563262016963386}
   - component: {fileID: 6142314431512683592}
-  m_Layer: 9
+  - component: {fileID: 4234492790637460868}
+  m_Layer: 13
   m_Name: DropCoinsDestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -268,7 +295,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 25
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -351,6 +378,30 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4234492790637460868}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3230523016025604762}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -366,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52de2c4adaf457a861397ad6b764f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _count: 15
+  _count: 10
   _drops:
   - Drop: {fileID: 2191082124486093092, guid: 470251642a71f824191875660e3a9e1f, type: 3}
     PercentProbability: 15
@@ -404,3 +455,16 @@ MonoBehaviour:
   _waitTime: 0.1
   _speed: 6
   _itemPerBurstCount: 3
+--- !u!114 &4234492790637460868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088537826772792446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5713812010872641221}
   - component: {fileID: 5713812010872641243}
   - component: {fileID: 7071797402500832739}
+  - component: {fileID: 1665367362213726226}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -80,6 +81,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls: []
@@ -98,6 +102,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1665367362213726226}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1665367362213726226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713812010872641223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: c619008f1efb180488a78e4a966a3e16, type: 3}
 --- !u!1 &5713812011797596762
 GameObject:
   m_ObjectHideFlags: 0

@@ -137,6 +137,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  _onClipComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1310277211361811958
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,8 +151,9 @@ GameObject:
   - component: {fileID: 1310277211361811953}
   - component: {fileID: 1310277211361811955}
   - component: {fileID: 6003860829538836617}
-  - component: {fileID: 8760975348560739891}
   - component: {fileID: 2678930814123837130}
+  - component: {fileID: 1585873108547472861}
+  - component: {fileID: 2805960912548734272}
   m_Layer: 0
   m_Name: Spell
   m_TagString: Untagged
@@ -212,9 +216,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
+      m_Calls: []
+  _actionWithArgument:
+    m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1585873108547472861}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Interactions.AddInventoryComponent,
+          Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2678930814123837130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f9f124db1e41b8a69fffbf55553984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1310277211361811958}
+--- !u!114 &1585873108547472861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310277211361811958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065e58dc5b9d4093a7257dacb97a14dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Spell
+  _value: 1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2805960912548734272}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1310277211361811955}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -239,22 +304,7 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
-  _actionWithArgument:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8760975348560739891}
-        m_TargetAssemblyTypeName: PixelCrew.Components.ModifyHealthComponent, Assembly-CSharp
-        m_MethodName: Apply
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8760975348560739891
+--- !u!114 &2805960912548734272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,20 +313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310277211361811958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75676b34c94f427e91baabb65cdf66e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 5
---- !u!114 &2678930814123837130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310277211361811958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f9f124db1e41b8a69fffbf55553984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1310277211361811958}
+  _clip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}

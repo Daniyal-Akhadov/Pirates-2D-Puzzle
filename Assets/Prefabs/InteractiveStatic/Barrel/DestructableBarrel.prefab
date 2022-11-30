@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 500350349860358737}
   - component: {fileID: 500350349860358738}
   - component: {fileID: 1067942940306544880}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,30 @@ MonoBehaviour:
     _onCompleted:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 500350351563464660}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 500350349860358738}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1067942940751318385}
           m_TargetAssemblyTypeName: PixelCrew.Components.SpawnComponent, Assembly-CSharp
           m_MethodName: Spawn
@@ -151,15 +175,15 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1067942940751318384}
-          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+          m_TargetAssemblyTypeName: PixelCrew.Components.GameObjectBased.DestroyObjectComponent,
             Assembly-CSharp
-          m_MethodName: DestroyObject
-          m_Mode: 1
+          m_MethodName: DestroyObjectInTime
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 0.2
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -180,7 +204,8 @@ GameObject:
   - component: {fileID: 1067942940751318384}
   - component: {fileID: 1067942940751318385}
   - component: {fileID: 1067942940751318386}
-  m_Layer: 9
+  - component: {fileID: 1230122095109110896}
+  m_Layer: 13
   m_Name: DestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -241,7 +266,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 25
+  m_Mass: 1500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -277,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7196676271280048020, guid: 89e71667fbea4c64b8854723eabdc939, type: 3}
   _spawnPoint: {fileID: 500350351563464659}
+  _mergeToPoint: 0
 --- !u!114 &1067942940751318386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +349,31 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1230122095109110896}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1230122095109110896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500350351563464658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 4ac9fd6e317617847874df651cc691db, type: 3}

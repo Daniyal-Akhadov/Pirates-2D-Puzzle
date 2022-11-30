@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3128404490634028482}
   - component: {fileID: 3128404490634028481}
-  - component: {fileID: 3128404490634028478}
   - component: {fileID: 2685052969611780319}
   - component: {fileID: 3978129188618540108}
+  - component: {fileID: 8004436237162708026}
+  - component: {fileID: 4841129570418725094}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: Untagged
@@ -53,19 +54,6 @@ CircleCollider2D:
   m_Offset: {x: 0.01, y: 0.01}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &3128404490634028478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3128404490634028483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41726b9c093a48f88827627e6130fd81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _profit: 1
 --- !u!114 &2685052969611780319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +67,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -118,6 +109,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _actionWithArgument:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8004436237162708026}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Interactions.AddInventoryComponent,
+          Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3978129188618540108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +138,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 3128404490634028483}
+--- !u!114 &8004436237162708026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128404490634028483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065e58dc5b9d4093a7257dacb97a14dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _value: 1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4841129570418725094}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Audio.PlaySfx, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4841129570418725094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128404490634028483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290c410db3924e16aa12da72a2fde494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: a624294343232974ba7aa4a2578bb8b8, type: 3}
 --- !u!1 &3128404491061406336
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +290,7 @@ MonoBehaviour:
     _onCompleted:
       m_PersistentCalls:
         m_Calls: []
-  _onComplete:
+  _onClipComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &3938824182914585330
