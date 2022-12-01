@@ -9,6 +9,11 @@ namespace PixelCrew.Components.GameObjectBased
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private bool _mergeToPoint;
 
+        public void SetTarget(GameObject target)
+        {
+            _target = target;
+        }
+
         [ContextMenu("Spawn")]
         public void Spawn()
         {

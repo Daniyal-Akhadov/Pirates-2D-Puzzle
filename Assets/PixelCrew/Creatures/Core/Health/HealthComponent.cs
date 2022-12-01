@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +16,7 @@ namespace PixelCrew.Creatures.Core.Health
         public void ModifyHealth(GameObject attacker, int delta)
         {
             _health += delta;
+            _health = Mathf.Clamp(_health, _health, DefinitionsFacade.Instance.PlayerDefinitions.MaxHealth);
             _onChanged?.Invoke(_health);
 
             switch (delta)

@@ -69,9 +69,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Heal",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "b071c44b-947a-48c5-a718-d336df08f9ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseItem",
+                    "type": "Button",
+                    "id": "bb1106fb-51ae-4a1d-b4f2-47efb35240fd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -306,7 +315,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Heal",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -317,7 +326,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Heal",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d9b82c6-3546-4fa9-931a-2a9764e320d8",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3453fa00-9d1f-4777-ab4d-546c9d0568d1",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

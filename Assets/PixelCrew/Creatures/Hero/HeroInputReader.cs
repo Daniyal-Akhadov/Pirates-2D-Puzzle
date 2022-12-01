@@ -1,4 +1,5 @@
 using PixelCrew.Creatures.Core;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,7 +34,9 @@ namespace PixelCrew.Creatures.Hero
             _input.Hero.Throw.started += OnThrow;
             _input.Hero.QueueThrow.performed += OnQueueThrow;
 
-            _input.Hero.Heal.started += OnHeal;
+            _input.Hero.NextItem.started += OnNextItem;
+
+            _input.Hero.UseItem.started += OnUseItem;
         }
 
         private void OnEnable()
@@ -68,9 +71,15 @@ namespace PixelCrew.Creatures.Hero
             gameObject.SetActive(false);
         }
 
-        private void OnHeal(InputAction.CallbackContext context)
+        private void OnUseItem(InputAction.CallbackContext context)
         {
-            _hero.TryHeal();
+            _hero.OnUseItem();
+        }
+
+        private void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.started)
+                _hero.NextItem();
         }
 
         private void OnMovement(InputAction.CallbackContext context)
@@ -93,17 +102,20 @@ namespace PixelCrew.Creatures.Hero
 
         private void OnInteract(InputAction.CallbackContext context)
         {
-            _interact.Interact();
+            if (context.started)
+                _interact.Interact();
         }
 
         private void OnAttack(InputAction.CallbackContext context)
         {
-            _attacker.Attack();
+            if (context.started)
+                _attacker.Attack();
         }
 
         private void OnThrow(InputAction.CallbackContext context)
         {
-            _thrower.TryThrow();
+            if (context.started)
+                _thrower.TryThrow();
         }
 
         private void OnQueueThrow(InputAction.CallbackContext context)

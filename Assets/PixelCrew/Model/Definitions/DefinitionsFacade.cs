@@ -7,10 +7,13 @@ namespace PixelCrew.Model.Definitions
     {
         [SerializeField] private InventoryItemsDefinitions _items;
         [SerializeField] private PlayerDefinitions _playerDefinitions;
-        public InventoryItemsDefinitions Items => _items;
-        public PlayerDefinitions PlayerDefinitions => _playerDefinitions;
+        [SerializeField] private ThrowableItemDefinitions _throwableItems;
 
         private static DefinitionsFacade _instance;
+
+        public InventoryItemsDefinitions Items => _items;
+        public PlayerDefinitions PlayerDefinitions => _playerDefinitions;
+        public ThrowableItemDefinitions ThrowableItemDefinitions => _throwableItems;
 
         public static DefinitionsFacade Instance => _instance == null ? LoadDefinitions() : _instance;
 
@@ -19,5 +22,5 @@ namespace PixelCrew.Model.Definitions
             _instance = Resources.Load<DefinitionsFacade>("DefinitionsFacade");
             return _instance;
         }
-    }
+    } 
 }

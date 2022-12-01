@@ -5,12 +5,12 @@ using PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrew.Model
+namespace PixelCrew.Model.Data
 {
     [Serializable]
     public class InventoryData
     {
-        [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
+        [SerializeField] private List<InventoryItemData> _inventory = new();
 
         public event Action<string, int> OnChanged;
 
@@ -21,16 +21,13 @@ namespace PixelCrew.Model
             var itemDefinition = DefinitionsFacade.Instance.Items.Get(id);
             if (itemDefinition.IsVoid == true) return;
 
-            var isFull = _inventory.Count >= DefinitionsFacade.Instance.PlayerDefinitions.InventorySize;
 
-            if (itemDefinition.IsStackable == true)
+            if (itemDefinition.HasTag(ItemTag.Stackable))
             {
                 var item = GetItem(id);
 
                 if (item == null)
                 {
-                    if (isFull == true) return;
-
                     item = new InventoryItemData(id);
                     _inventory.Add(item);
                 }
@@ -41,9 +38,9 @@ namespace PixelCrew.Model
             {
                 for (int i = 0; i < value; i++)
                 {
-                    isFull = _inventory.Count >= DefinitionsFacade.Instance.PlayerDefinitions.InventorySize;
+                    var isFull = _inventory.Count >= DefinitionsFacade.Instance.PlayerDefinitions.InventorySize;
                     if (isFull == true) return;
-                    
+
                     var item = new InventoryItemData(id) { Value = 1 };
                     _inventory.Add(item);
                 }
@@ -62,7 +59,7 @@ namespace PixelCrew.Model
                 throw new ArgumentException($"You don't have this id: {id}!");
             }
 
-            if (itemDefinition.IsStackable == true)
+            if (itemDefinition.HasTag(ItemTag.Stackable))
             {
                 var item = GetItem(id);
                 if (item == null) return;
@@ -90,14 +87,25 @@ namespace PixelCrew.Model
             return _inventory.Where(item => item.Id == id).Sum(item => item.Value);
         }
 
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var result = new List<InventoryItemData>();
+            
+            foreach (var item in _inventory)
+            {
+                var definition = DefinitionsFacade.Instance.Items.Get(item.Id);
+                bool isAllRequirementsMet = tags.All(tag => definition.HasTag(tag));
+                
+                if (isAllRequirementsMet == true)
+                    result.Add(item);
+            }
+
+            return result.ToArray();
+        }
+
         private InventoryItemData GetItem(string id)
         {
             return _inventory.FirstOrDefault(itemData => itemData.Id == id);
-        }
-
-        public InventoryItemData[] GetAll()
-        {
-            return _inventory.ToArray();
         }
     }
 

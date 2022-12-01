@@ -91,9 +91,18 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Heal"",
+                    ""name"": ""NextItem"",
                     ""type"": ""Button"",
                     ""id"": ""b071c44b-947a-48c5-a718-d336df08f9ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb1106fb-51ae-4a1d-b4f2-47efb35240fd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -328,7 +337,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Heal"",
+                    ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -339,7 +348,29 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Heal"",
+                    ""action"": ""NextItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d9b82c6-3546-4fa9-931a-2a9764e320d8"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3453fa00-9d1f-4777-ab4d-546c9d0568d1"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -379,7 +410,8 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_QueueThrow = m_Hero.FindAction("QueueThrow", throwIfNotFound: true);
-        m_Hero_Heal = m_Hero.FindAction("Heal", throwIfNotFound: true);
+        m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
+        m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -446,7 +478,8 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_QueueThrow;
-    private readonly InputAction m_Hero_Heal;
+    private readonly InputAction m_Hero_NextItem;
+    private readonly InputAction m_Hero_UseItem;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -458,7 +491,8 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @QueueThrow => m_Wrapper.m_Hero_QueueThrow;
-        public InputAction @Heal => m_Wrapper.m_Hero_Heal;
+        public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
+        public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -489,9 +523,12 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @QueueThrow.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnQueueThrow;
                 @QueueThrow.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnQueueThrow;
                 @QueueThrow.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnQueueThrow;
-                @Heal.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnHeal;
-                @Heal.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnHeal;
-                @Heal.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnHeal;
+                @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @UseItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @UseItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @UseItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -517,9 +554,12 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @QueueThrow.started += instance.OnQueueThrow;
                 @QueueThrow.performed += instance.OnQueueThrow;
                 @QueueThrow.canceled += instance.OnQueueThrow;
-                @Heal.started += instance.OnHeal;
-                @Heal.performed += instance.OnHeal;
-                @Heal.canceled += instance.OnHeal;
+                @NextItem.started += instance.OnNextItem;
+                @NextItem.performed += instance.OnNextItem;
+                @NextItem.canceled += instance.OnNextItem;
+                @UseItem.started += instance.OnUseItem;
+                @UseItem.performed += instance.OnUseItem;
+                @UseItem.canceled += instance.OnUseItem;
             }
         }
     }
@@ -551,6 +591,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnQueueThrow(InputAction.CallbackContext context);
-        void OnHeal(InputAction.CallbackContext context);
+        void OnNextItem(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
     }
 }

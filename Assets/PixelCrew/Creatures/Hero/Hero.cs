@@ -1,6 +1,8 @@
-﻿using PixelCrew.Creatures.Core;
+﻿using PixelCrew.Components;
+using PixelCrew.Creatures.Core;
 using PixelCrew.Creatures.Core.Health;
 using PixelCrew.Model;
+using PixelCrew.Model.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,6 +26,9 @@ namespace PixelCrew.Creatures.Hero
         private HealthComponent _health;
         private ProjectileThrower _thrower;
         private HeroAttacker _attacker;
+        private SpeedUpComponent _speedUp;
+
+        private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
 
         protected override void Awake()
         {
@@ -33,6 +38,7 @@ namespace PixelCrew.Creatures.Hero
             _interact = GetComponent<HeroInteract>();
             _health = GetComponent<HealthComponent>();
             _thrower = GetComponent<ProjectileThrower>();
+            _speedUp = GetComponent<SpeedUpComponent>();
         }
 
         private void Start()
@@ -69,21 +75,58 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Health.Value = value;
         }
 
-        public void TryHeal()
+        private bool TrySpeedUp()
         {
-            const string SpellItem = "Spell";
-            var inventory = _session.Data.Inventory;
+            if (_speedUp.IsWork == true || SelectedItem.Id != "SpeedSpell")
+                return false;
 
-            if (inventory.Count(SpellItem) > 0)
+            _speedUp.Do(gameObject);
+            _session.Data.Inventory.Remove(SelectedItem.Id, 1);
+            return true;
+        }
+
+        private bool TryHeal()
+        {
+            const string Spell = "Spell";
+            const string BigSpell = "BigSpell";
+
+            if (SelectedItem.Id is Spell or BigSpell == false)
+                return false;
+
+            switch (SelectedItem.Id)
             {
-                inventory.Remove(SpellItem, 1);
-                _health.ModifyHealth(gameObject, 1);
+                case Spell:
+                    _health.ModifyHealth(gameObject, 1);
+                    break;
+                case BigSpell:
+                    _health.ModifyHealth(gameObject, 3);
+                    break;
             }
+
+            _session.Data.Inventory.Remove(SelectedItem.Id, 1);
+            return true;
         }
 
         public void AddInInventory(string id, int value, UnityEvent callback = null)
         {
             _session.Data.Inventory.Add(id, value, callback);
+        }
+
+        public void NextItem()
+        {
+            _session.QuickInventory.SetNextItem();
+        }
+
+        public void OnUseItem()
+        {
+            if (SelectedItem.Id == "SpeedSpell")
+            {
+                TrySpeedUp();
+            }
+            else
+            {
+                TryHeal();
+            }
         }
 
         private void OnInventoryChanged(string id, int value)

@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
 using PixelCrew.Components;
+using Unity.VisualScripting;
 using UnityEngine;
+using Cooldown = PixelCrew.Utilities.TimeManagement.Cooldown;
 
 namespace PixelCrew.Creatures.Core
 {
@@ -60,6 +63,14 @@ namespace PixelCrew.Creatures.Core
         {
             _direction = Vector2.zero.x;
             _animator.SetBool(CreatureAnimations.IsRunning, _direction != 0f);
+        }
+
+        public IEnumerator SpeedUp(float value, float duration, Action callback)
+        {
+            _speed *= value;
+            yield return new WaitForSeconds(duration);
+            _speed /= value;
+            callback?.Invoke();
         }
     }
 }
