@@ -31,7 +31,6 @@ namespace PixelCrew.Creatures.Hero
 
             _input.Hero.Attack.started += OnAttack;
 
-            _input.Hero.Throw.started += OnThrow;
             _input.Hero.QueueThrow.performed += OnQueueThrow;
 
             _input.Hero.NextItem.started += OnNextItem;
@@ -110,12 +109,6 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.started)
                 _attacker.Attack();
-        }
-
-        private void OnThrow(InputAction.CallbackContext context)
-        {
-            if (context.started)
-                _thrower.TryThrow();
         }
 
         private void OnQueueThrow(InputAction.CallbackContext context)

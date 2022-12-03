@@ -3,6 +3,9 @@ using PixelCrew.Creatures.Core;
 using PixelCrew.Creatures.Core.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository;
+using PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,7 +29,6 @@ namespace PixelCrew.Creatures.Hero
         private HealthComponent _health;
         private ProjectileThrower _thrower;
         private HeroAttacker _attacker;
-        private SpeedUpComponent _speedUp;
 
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
 
@@ -38,7 +40,6 @@ namespace PixelCrew.Creatures.Hero
             _interact = GetComponent<HeroInteract>();
             _health = GetComponent<HealthComponent>();
             _thrower = GetComponent<ProjectileThrower>();
-            _speedUp = GetComponent<SpeedUpComponent>();
         }
 
         private void Start()
@@ -75,38 +76,6 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Health.Value = value;
         }
 
-        private bool TrySpeedUp()
-        {
-            if (_speedUp.IsWork == true || SelectedItem.Id != "SpeedSpell")
-                return false;
-
-            _speedUp.Do(gameObject);
-            _session.Data.Inventory.Remove(SelectedItem.Id, 1);
-            return true;
-        }
-
-        private bool TryHeal()
-        {
-            const string Spell = "Spell";
-            const string BigSpell = "BigSpell";
-
-            if (SelectedItem.Id is Spell or BigSpell == false)
-                return false;
-
-            switch (SelectedItem.Id)
-            {
-                case Spell:
-                    _health.ModifyHealth(gameObject, 1);
-                    break;
-                case BigSpell:
-                    _health.ModifyHealth(gameObject, 3);
-                    break;
-            }
-
-            _session.Data.Inventory.Remove(SelectedItem.Id, 1);
-            return true;
-        }
-
         public void AddInInventory(string id, int value, UnityEvent callback = null)
         {
             _session.Data.Inventory.Add(id, value, callback);
@@ -119,14 +88,10 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnUseItem()
         {
-            if (SelectedItem.Id == "SpeedSpell")
-            {
-                TrySpeedUp();
-            }
-            else
-            {
-                TryHeal();
-            }
+            if (IsSelectedItem(ItemTag.Throwable))
+                _thrower.TryThrow();
+            else if (IsSelectedItem(ItemTag.Potion))
+                UsePotion();
         }
 
         private void OnInventoryChanged(string id, int value)
@@ -135,9 +100,34 @@ namespace PixelCrew.Creatures.Hero
                 Invoke(nameof(UpdateHeroWeaponInTime), 0.14f);
         }
 
+        private bool IsSelectedItem(ItemTag itemTag)
+        {
+            return _session.QuickInventory.SelectedItemDefinition.HasTag(itemTag);
+        }
+
         private void UpdateHeroWeaponInTime()
         {
             _attacker.UpdateHeroWeapon();
+        }
+
+        private void UsePotion()
+        {
+            var potion = DefinitionsFacade.Instance.PotionRepository.Get(SelectedItem.Id);
+
+            switch (potion.Effect)
+            {
+                case PotionEffect.AddHp:
+                    _session.Data.Health.Value += potion.Value;
+                    break;
+                case PotionEffect.SpeedUp:
+                    if (Movement.IsSpeedUpWork == true)
+                        return;
+
+                    StartCoroutine(Movement.SpeedUp(potion.Value, potion.Time));
+                    break;
+            }
+
+            _session.Data.Inventory.Remove(SelectedItem.Id, 1);
         }
     }
 }

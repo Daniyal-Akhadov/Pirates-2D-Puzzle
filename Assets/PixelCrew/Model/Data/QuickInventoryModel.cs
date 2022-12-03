@@ -1,6 +1,7 @@
 ﻿using System;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 
@@ -12,8 +13,22 @@ namespace PixelCrew.Model.Data
 
         public readonly IntProperty SelectedIndex = new();
         public InventoryItemData[] Inventory { get; private set; }
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
-        
+
+        public InventoryItemData SelectedItem
+        {
+            get
+            {
+                InventoryItemData result = null;
+
+                if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value)
+                {
+                    result = Inventory[SelectedIndex.Value];
+                }
+
+                return result;
+            }
+        }
+
         private event Action OnQuickInventoryChanged;
 
         public QuickInventoryModel(PlayerData data)
@@ -34,6 +49,7 @@ namespace PixelCrew.Model.Data
             return new ActionDisposable(() => OnQuickInventoryChanged -= call);
         }
 
+        public ItemDefinition SelectedItemDefinition => DefinitionsFacade.Instance.Items.Get(SelectedItem?.Id);
         public void SetNextItem()
         {
             SelectedIndex.Value = (int)Mathf.Repeat(1 + SelectedIndex.Value, Inventory.Length);

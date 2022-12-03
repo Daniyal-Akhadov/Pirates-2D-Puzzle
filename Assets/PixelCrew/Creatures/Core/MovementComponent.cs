@@ -16,6 +16,8 @@ namespace PixelCrew.Creatures.Core
         private Animator _animator;
 
         private const float DiedZone = 0.01f;
+        
+        public bool IsSpeedUpWork { get; private set; }
 
         private void FixedUpdate()
         {
@@ -65,11 +67,13 @@ namespace PixelCrew.Creatures.Core
             _animator.SetBool(CreatureAnimations.IsRunning, _direction != 0f);
         }
 
-        public IEnumerator SpeedUp(float value, float duration, Action callback)
+        public IEnumerator SpeedUp(float value, float duration, Action callback = null)
         {
-            _speed *= value;
+            IsSpeedUpWork = true;
+            _speed += value;
             yield return new WaitForSeconds(duration);
-            _speed /= value;
+            _speed -= value;
+            IsSpeedUpWork = false;
             callback?.Invoke();
         }
     }

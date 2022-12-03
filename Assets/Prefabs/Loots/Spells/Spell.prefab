@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065e58dc5b9d4093a7257dacb97a14dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: Spell
+  _id: SmallHealthPotion
   _value: 1
   _onComplete:
     m_PersistentCalls:

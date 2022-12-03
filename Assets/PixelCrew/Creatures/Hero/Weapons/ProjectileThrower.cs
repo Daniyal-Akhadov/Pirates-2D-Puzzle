@@ -5,6 +5,7 @@ using PixelCrew.Creatures.Core;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utilities.TimeManagement;
 using UnityEngine;
 
@@ -55,7 +56,7 @@ namespace PixelCrew.Creatures.Hero
         {
             print("Throw");
             var throwableId = _session.QuickInventory.SelectedItem.Id;
-            var throwableDefinition = DefinitionsFacade.Instance.ThrowableItemDefinitions.Get(throwableId);
+            var throwableDefinition = DefinitionsFacade.Instance.ThrowableRepository.Get(throwableId);
             _projectileSpawner.SetTarget(throwableDefinition.Projectile);
             _projectileSpawner.Spawn();
             _session.Data.Inventory.Remove(throwableId, 1);
