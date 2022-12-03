@@ -27,6 +27,7 @@ namespace PixelCrew.Creatures.Enemy
         private bool _isGround;
 
         private const float AvailableAngleForJumping = 45f;
+        private const float Treshold = 0.2f;
 
         protected override void Awake()
         {
@@ -115,7 +116,12 @@ namespace PixelCrew.Creatures.Enemy
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var distance = Mathf.Abs(_target.transform.position.x - transform.position.x);
+
+                    if (distance <= Treshold)
+                        Movement.Stop();
+                    else
+                        SetDirectionToTarget();
                 }
 
                 yield return null;

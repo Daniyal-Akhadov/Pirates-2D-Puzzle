@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using PixelCrew.Model;
+using PixelCrew.Model.Data;
+using PixelCrew.UI.Widgets;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 
@@ -14,11 +16,13 @@ namespace PixelCrew.UI.Hud.QuickInventory
 
         private readonly List<InventoryItemWidget> _createdItems = new();
         private readonly CompositeDisposable _trash = new();
+        private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
             _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
+            _dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_item, _container);
             Rebuild();
         }
 
@@ -31,22 +35,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
         {
             var quickInventory = _session.QuickInventory.Inventory;
 
-            for (int i = _createdItems.Count; i < quickInventory.Length; i++)
-            {
-                var item = Instantiate(_item, _container);
-                _createdItems.Add(item);
-            }
-
-            for (int i = 0; i < quickInventory.Length; i++)
-            {
-                _createdItems[i].SetData(quickInventory[i], i);
-                _createdItems[i].gameObject.SetActive(true);
-            }
-
-            for (int i = quickInventory.Length; i < _createdItems.Count; i++)
-            {
-                _createdItems[i].gameObject.SetActive(false);
-            }
+            _dataGroup.SetData(quickInventory);
         }
     }
 }

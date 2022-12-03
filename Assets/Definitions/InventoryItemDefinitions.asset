@@ -34,3 +34,6 @@ MonoBehaviour:
   - _id: SpeedSpell
     _icon: {fileID: 21300000, guid: c8b9e1083a0fecd4aad05ee394e61c0c, type: 3}
     _tags: 0100000000000000
+  - _id: GreenDiamond
+    _icon: {fileID: 21300000, guid: eeb3491cc6c078344b9f48004f38a827, type: 3}
+    _tags: 0100000000000000

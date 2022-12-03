@@ -1,6 +1,7 @@
 ﻿using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.UI.Widgets;
+using PixelCrew.Utilities;
 using UnityEngine;
 
 namespace PixelCrew.UI.Hud
@@ -23,6 +24,11 @@ namespace PixelCrew.UI.Hud
             _session.Data.Health.OnChanged -= OnHealthChanged;
         }
 
+        public void OnInGameSettings()
+        {
+            WindowUtils.CreateWindow("UI/InGameMenuWindow");
+        }
+        
         private void OnHealthChanged(int newValue, int oldValue)
         {
             var maxHealth = DefinitionsFacade.Instance.PlayerDefinitions.MaxHealth;

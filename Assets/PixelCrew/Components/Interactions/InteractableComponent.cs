@@ -9,7 +9,6 @@ namespace PixelCrew.Components.Interactions
 
         public void Interact()
         {
-            print("Interact");
             _onInteract?.Invoke();
         }
     }
