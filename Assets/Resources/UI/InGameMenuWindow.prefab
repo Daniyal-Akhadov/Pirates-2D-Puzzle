@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 8895984362571008805}
   - component: {fileID: 8895984362571008807}
   - component: {fileID: 8895984362571008806}
+  - component: {fileID: 8771419906165751175}
   m_Layer: 5
   m_Name: PressedState
   m_TagString: Untagged
@@ -452,6 +453,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8771419906165751175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984362571008804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_restart
+  _isCapitalize: 1
 --- !u!1 &8895984362748425238
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +544,7 @@ GameObject:
   - component: {fileID: 8895984363103070336}
   - component: {fileID: 8895984363103070338}
   - component: {fileID: 8895984363103070337}
+  - component: {fileID: 5978622892430429462}
   m_Layer: 5
   m_Name: PressedState
   m_TagString: Untagged
@@ -653,6 +669,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5978622892430429462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984363103070343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_exit
+  _isCapitalize: 1
 --- !u!1 &8895984363846183902
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +786,7 @@ GameObject:
   - component: {fileID: 8895984363872283873}
   - component: {fileID: 8895984363872283875}
   - component: {fileID: 8895984363872283874}
+  - component: {fileID: 3995270882829355049}
   m_Layer: 5
   m_Name: NormalState
   m_TagString: Untagged
@@ -880,6 +911,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3995270882829355049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984363872283872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_exit
+  _isCapitalize: 1
 --- !u!1 &8895984363892901183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1239,7 @@ GameObject:
   - component: {fileID: 8895984364035438600}
   - component: {fileID: 8895984364035438602}
   - component: {fileID: 8895984364035438601}
+  - component: {fileID: 6949337873439360919}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -1318,6 +1364,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6949337873439360919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984364035438607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: panel_pause
+  _isCapitalize: 0
 --- !u!1 &8895984364057195632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,6 +1389,7 @@ GameObject:
   - component: {fileID: 8895984364057195633}
   - component: {fileID: 8895984364057195635}
   - component: {fileID: 8895984364057195634}
+  - component: {fileID: 8989230983251148122}
   m_Layer: 5
   m_Name: NormalState
   m_TagString: Untagged
@@ -1453,6 +1514,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8989230983251148122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984364057195632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_restart
+  _isCapitalize: 1
 --- !u!1 &8895984364256453618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1539,7 @@ GameObject:
   - component: {fileID: 8895984364256453619}
   - component: {fileID: 8895984364256453613}
   - component: {fileID: 8895984364256453612}
+  - component: {fileID: 3594474738029184454}
   m_Layer: 5
   m_Name: NormalState
   m_TagString: Untagged
@@ -1588,6 +1664,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3594474738029184454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984364256453618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_settings
+  _isCapitalize: 1
 --- !u!1 &8895984364376723884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1840,7 @@ GameObject:
   - component: {fileID: 8895984364388446180}
   - component: {fileID: 8895984364388446182}
   - component: {fileID: 8895984364388446181}
+  - component: {fileID: 2288636845405848736}
   m_Layer: 5
   m_Name: PressedState
   m_TagString: Untagged
@@ -1874,3 +1965,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2288636845405848736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895984364388446187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_settings
+  _isCapitalize: 1

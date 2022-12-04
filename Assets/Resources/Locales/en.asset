@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af1826977d14710b13082d38fdf4d28, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vTbKgCuXj4niBFZ9Jtf2sJ7gO_0Cluq8lJNn-v6HkAWzkxlKy2trOkcy3Ic5aoGamwBRplMd7DuAJd0/pub?gid=118166799&single=true&output=tsv
+  _localeItems:
+  - _key: button_exit
+    _value: "exit\r"
+  - _key: menu_title
+    _value: "Main menu\r"
+  - _key: button_settings
+    _value: "settings\r"
+  - _key: button_start
+    _value: "start\r"
+  - _key: button_languages
+    _value: "languages\r"
+  - _key: panel_pause
+    _value: "Pause\r"
+  - _key: button_restart
+    _value: "restart\r"
+  - _key: panel_options
+    _value: "Options\r"
+  - _key: sound_sfx_label
+    _value: "SFX:\r"
+  - _key: sound_music_label
+    _value: "Music:\r"
+  - _key: button_continue
+    _value: "Continue...\r"
+  - _key: -1---------
+    _value: "-1---------\r"
+  - _key: crabby_success_1
+    _value: "And now The Miracle...\r"
+  - _key: crabby_success_2
+    _value: "I have a diamond and you don't!!!\r"
+  - _key: crabby_success_3
+    _value: "Ahahahahahahaha!!!!!\r"
+  - _key: -2---------
+    _value: "-2---------\r"
+  - _key: crabby_get_diamond
+    _value: "Get me a Green Diamond and I show The Miracle\r"
+  - _key: -tutor1----------
+    _value: "-tutor1----------\r"
+  - _key: tutor_dialog_1
+    _value: "Hello, Cap! I want to teach you!\r"
+  - _key: tutor_dialog_2
+    _value: "Mmm, Ok...\r"
+  - _key: tutor_dialog_3
+    _value: "Let's go!\r"
+  - _key: ---OptionDialog---
+    _value: "---OptionDialog---\r"
+  - _key: use_helm
+    _value: "Use helm?\r"
+  - _key: option_answer_yes
+    _value: "1. Yes\r"
+  - _key: option_answer_no
+    _value: 2. No

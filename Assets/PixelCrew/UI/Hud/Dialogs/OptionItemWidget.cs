@@ -1,4 +1,5 @@
-﻿using PixelCrew.UI.Widgets;
+﻿using PixelCrew.Model.Definitions.Localization;
+using PixelCrew.UI.Widgets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,7 +16,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         public void SetData(OptionData optionData, int index)
         {
             _optionData = optionData;
-            _label.text = optionData.Text;
+            _label.text = LocalizationManager.Instance.GetLocalization(optionData.Text);
         }
 
         public void OnSelect()

@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8daf4506a1b4a938a7b92e94c43c0ac, type: 3}
-  m_Name: Crabby_getDiamond
+  m_Script: {fileID: 11500000, guid: 4af1826977d14710b13082d38fdf4d28, type: 3}
+  m_Name: ru
   m_EditorClassIdentifier: 
-  _data:
-    _sentences:
-    - _value: crabby_get_diamond
-      _icon: {fileID: 0}
-      _side: 0
-    _type: 0
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vTbKgCuXj4niBFZ9Jtf2sJ7gO_0Cluq8lJNn-v6HkAWzkxlKy2trOkcy3Ic5aoGamwBRplMd7DuAJd0/pub?gid=0&single=true&output=tsv
+  _localeItems: []

@@ -276,9 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogData:
-    _dialogText: Use helm?
+    _dialogText: use_helm
     _options:
-    - Text: 1. Yes
+    - Text: option_answer_yes
       OnSelect:
         m_PersistentCalls:
           m_Calls:
@@ -319,7 +319,7 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    - Text: 2. No
+    - Text: option_answer_no
       OnSelect:
         m_PersistentCalls:
           m_Calls:

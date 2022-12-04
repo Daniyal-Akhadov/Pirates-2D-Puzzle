@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 241995978}
   - component: {fileID: 241995977}
   - component: {fileID: 241995976}
+  - component: {fileID: 241995979}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -636,6 +637,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241995974}
   m_CullTransparentMesh: 1
+--- !u!114 &241995979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241995974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_continue
+  _isCapitalize: 0
 --- !u!1 &344266912
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +739,7 @@ GameObject:
   - component: {fileID: 376125698}
   - component: {fileID: 376125697}
   - component: {fileID: 376125699}
+  - component: {fileID: 376125700}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -904,6 +920,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &376125700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376125695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_continue
+  _isCapitalize: 0
 --- !u!1 &411238865
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1023,7 @@ GameObject:
   - component: {fileID: 415053805}
   - component: {fileID: 415053804}
   - component: {fileID: 415053803}
+  - component: {fileID: 415053806}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -1173,6 +1204,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415053801}
   m_CullTransparentMesh: 1
+--- !u!114 &415053806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415053801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f83964ff1fa4d4bbffb303c9a7c5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_continue
+  _isCapitalize: 0
 --- !u!1 &517041371
 GameObject:
   m_ObjectHideFlags: 0

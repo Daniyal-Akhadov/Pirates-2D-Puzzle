@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.UI.Widgets;
 using TMPro;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         public void Show(OptionDialogData dialogData)
         {
             _container.SetActive(true);
-            _dialog.text = dialogData.DialogText;
+            _dialog.text = LocalizationManager.Instance.GetLocalization(dialogData.DialogText);
             _dataGroup.SetData(dialogData.Options);
         }
     }

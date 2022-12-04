@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _sentences:
-    - _value: And now The Miracle...
+    - _value: crabby_success_1
       _icon: {fileID: 0}
       _side: 0
-    - _value: I have a diamond and you don't!!!
+    - _value: crabby_success_2
       _icon: {fileID: 0}
       _side: 0
-    - _value: Ahahahahahahaha!!!!!
+    - _value: crabby_success_3
       _icon: {fileID: 0}
       _side: 0
     _type: 0

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af1826977d14710b13082d38fdf4d28, type: 3}
+  m_Name: es
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vTbKgCuXj4niBFZ9Jtf2sJ7gO_0Cluq8lJNn-v6HkAWzkxlKy2trOkcy3Ic5aoGamwBRplMd7DuAJd0/pub?gid=1233547880&single=true&output=tsv
+  _localeItems:
+  - _key: button_exit
+    _value: "salida\r"
+  - _key: menu_title
+    _value: "Men\xFA\r"
+  - _key: button_settings
+    _value: "ajustes\r"
+  - _key: button_start
+    _value: "comienzo\r"
+  - _key: button_languages
+    _value: "idiomas\r"
+  - _key: panel_pause
+    _value: "Pausa\r"
+  - _key: button_restart
+    _value: "repetici\xF3n\r"
+  - _key: panel_options
+    _value: "Opciones\r"
+  - _key: sound_sfx_label
+    _value: "Sonidos:\r"
+  - _key: sound_music_label
+    _value: "M\xFAsico:\r"
+  - _key: button_continue
+    _value: "Continuar...\r"
+  - _key: -1---------
+    _value: "-1---------\r"
+  - _key: crabby_success_1
+    _value: "Y ahora ser\xE1 un milagro...\r"
+  - _key: crabby_success_2
+    _value: "\xA1Yo tengo un diamante y t\xFA no!!!!\r"
+  - _key: crabby_success_3
+    _value: "\xA1Ahahahahahah!!!!\r"
+  - _key: -2---------
+    _value: "-2---------\r"
+  - _key: crabby_get_diamond
+    _value: "\xA1Tr\xE1eme un diamante verde y te mostrar\xE9 un MILAGRO!\r"
+  - _key: -tutor1----------
+    _value: "-tutor1----------\r"
+  - _key: tutor_dialog_1
+    _value: "\xA1Hola, Cap! \xA1Quiero ense\xF1arte!\r"
+  - _key: tutor_dialog_2
+    _value: "Vale...\r"
+  - _key: tutor_dialog_3
+    _value: "\xA1Vamos!\r"
+  - _key: ---OptionDialog---
+    _value: "---OptionDialog---\r"
+  - _key: use_helm
+    _value: "Girar el tim\xF3n?\r"
+  - _key: option_answer_yes
+    _value: "1. S\xED\r"
+  - _key: option_answer_no
+    _value: 2. No

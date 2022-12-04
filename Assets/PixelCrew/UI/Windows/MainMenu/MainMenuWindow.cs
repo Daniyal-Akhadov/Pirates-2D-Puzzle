@@ -9,6 +9,11 @@ namespace PixelCrew.UI.MainMenu
     {
         private Action _closeAction;
 
+        public void OnShowLocalizationWindow()
+        {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
+        }
+        
         public void OnShowSettings()
         {
             WindowUtils.CreateWindow("UI/SettingsWindow");

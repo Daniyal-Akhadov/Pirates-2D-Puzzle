@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Utilities;
 using UnityEngine;
 
@@ -48,7 +49,8 @@ namespace PixelCrew.UI.Hud.Dialogs
         {
             if (_typingCoroutine == null) return;
             StopTypingAnimation();
-            CurrentContent.Dialog.text = _dialogData.Sentences[_currentSentence].Value;
+            CurrentContent.Dialog.text =
+                LocalizationManager.Instance.GetLocalization(_dialogData.Sentences[_currentSentence].Value);
         }
 
         public void OnContinue()
@@ -97,8 +99,9 @@ namespace PixelCrew.UI.Hud.Dialogs
             CurrentContent.Dialog.text = string.Empty;
             var sentence = CurrentSentence;
             CurrentContent.TrySetIcon(sentence.Icon);
+            var targetText = LocalizationManager.Instance.GetLocalization(sentence.Value);
 
-            foreach (var letter in sentence.Value)
+            foreach (var letter in targetText)
             {
                 CurrentContent.Dialog.text += letter;
                 _source.PlayOneShot(_typing);
