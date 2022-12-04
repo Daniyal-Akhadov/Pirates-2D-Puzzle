@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _sentences:
-    - Get me a Green Diamond and I will show you The Miracle!
-    - Go away until you not have a Green Diamond!
+    - _value: Get me a Green Diamond and I show The Miracle
+      _icon: {fileID: 0}
+      _side: 0
+    _type: 0

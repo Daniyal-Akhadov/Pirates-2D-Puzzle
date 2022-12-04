@@ -27,18 +27,31 @@ namespace PixelCrew.Components.Dialogs
             }
         }
 
-        private void Start()
-        {
-            _dialogBox = FindObjectOfType<DialogBoxController>();
-        }
-
         public void Show()
         {
+            if (_dialogBox == null)
+                _dialogBox = FindDialogBox();
+            
             _dialogBox.ShowDialog(Data);
         }
-        
+
+        private DialogBoxController FindDialogBox()
+        {
+            GameObject controller = Data.Type switch
+            {
+                DialogType.Simple => GameObject.FindWithTag("SimpleDialog"),
+                DialogType.Personalized => GameObject.FindWithTag("PersonalizedDialog"),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            return controller.GetComponent<DialogBoxController>();
+        }
+
         public void Show(DialogDefinition definition)
         {
+            if (_dialogBox == null)
+                _dialogBox = FindDialogBox();
+            
             _dialogBox.ShowDialog(definition.DialogData);
         }
 

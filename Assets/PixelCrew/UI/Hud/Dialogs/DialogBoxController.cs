@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using PixelCrew.Model.Data;
 using PixelCrew.Utilities;
-using TMPro;
 using UnityEngine;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
     public class DialogBoxController : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _dialog;
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
 
@@ -19,12 +16,17 @@ namespace PixelCrew.UI.Hud.Dialogs
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioClip _close;
 
+        [Space] [SerializeField] protected DialogContent LeftContent;
+
         private DialogData _dialogData;
         private int _currentSentence;
         private AudioSource _source;
+        private Coroutine _typingCoroutine;
+
+        protected virtual DialogContent CurrentContent => LeftContent;
+        protected Sentence CurrentSentence => _dialogData.Sentences[_currentSentence];
 
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
-        private Coroutine _typingCoroutine;
 
         private void Start()
         {
@@ -35,7 +37,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         {
             _dialogData = dialogData;
             _currentSentence = 0;
-            _dialog.text = string.Empty;
+            CurrentContent.Dialog.text = string.Empty;
 
             _container.SetActive(true);
             _source.PlayOneShot(_open);
@@ -46,14 +48,14 @@ namespace PixelCrew.UI.Hud.Dialogs
         {
             if (_typingCoroutine == null) return;
             StopTypingAnimation();
-            _dialog.text = _dialogData.Sentences[_currentSentence];
+            CurrentContent.Dialog.text = _dialogData.Sentences[_currentSentence].Value;
         }
 
         public void OnContinue()
         {
             if (_typingCoroutine != null)
                 StopTypingAnimation();
-            
+
             _currentSentence++;
 
             var isDialogCompleted = _currentSentence >= _dialogData.Sentences.Length;
@@ -80,7 +82,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             _typingCoroutine = null;
         }
 
-        private void OnOpenComplete()
+        protected virtual void OnOpenComplete()
         {
             _typingCoroutine = StartCoroutine(TypeDialog());
         }
@@ -92,12 +94,13 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private IEnumerator TypeDialog()
         {
-            _dialog.text = string.Empty;
-            var sentence = _dialogData.Sentences[_currentSentence];
+            CurrentContent.Dialog.text = string.Empty;
+            var sentence = CurrentSentence;
+            CurrentContent.TrySetIcon(sentence.Icon);
 
-            foreach (var letter in sentence)
+            foreach (var letter in sentence.Value)
             {
-                _dialog.text += letter;
+                CurrentContent.Dialog.text += letter;
                 _source.PlayOneShot(_typing);
                 yield return new WaitForSeconds(_typeCooldown);
             }

@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _sentences:
-    - And now The Miracle!
-    - Now I have a Diamond and you don't!!!
-    - Ahahahahahaha!!!
+    - _value: And now The Miracle...
+      _icon: {fileID: 0}
+      _side: 0
+    - _value: I have a diamond and you don't!!!
+      _icon: {fileID: 0}
+      _side: 0
+    - _value: Ahahahahahahaha!!!!!
+      _icon: {fileID: 0}
+      _side: 0
+    _type: 0
