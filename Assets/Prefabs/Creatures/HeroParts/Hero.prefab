@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 6172497455716126300}
   - component: {fileID: 716575789684313104}
   - component: {fileID: 8734514144392996610}
+  - component: {fileID: 47164895461272091}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -927,7 +928,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 47164895461272091}
         m_TargetAssemblyTypeName: PixelCrew.Components.LevelManagement.ReloadSceneComponent,
           Assembly-CSharp
         m_MethodName: Reload
@@ -1070,6 +1071,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: d51dfffd526a78e41a2f9169628de9f6, type: 3}
   - _id: Die
     _clip: {fileID: 8300000, guid: dfe1ea19659f7e7439f8b7b9205f80a3, type: 3}
+--- !u!114 &47164895461272091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840785926518003769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce91cb133011471891ceb29dadc99649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4840785926766551408
 GameObject:
   m_ObjectHideFlags: 0
