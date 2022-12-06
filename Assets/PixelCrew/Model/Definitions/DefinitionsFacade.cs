@@ -10,6 +10,7 @@ namespace PixelCrew.Model.Definitions
         [SerializeField] private ItemsRepository _items;
         [SerializeField] private ThrowableRepository _throwableItems;
         [SerializeField] private PotionRepository _potionRepository;
+        [SerializeField] private PerksRepository _perksRepository;
         [SerializeField] private PlayerDefinitions _playerDefinitions;
 
         private static DefinitionsFacade _instance;
@@ -19,6 +20,8 @@ namespace PixelCrew.Model.Definitions
         public ThrowableRepository ThrowableRepository => _throwableItems;
 
         public PotionRepository PotionRepository => _potionRepository;
+
+        public PerksRepository PerksRepository => _perksRepository;
 
         public static DefinitionsFacade Instance => _instance == null ? LoadDefinitions() : _instance;
 

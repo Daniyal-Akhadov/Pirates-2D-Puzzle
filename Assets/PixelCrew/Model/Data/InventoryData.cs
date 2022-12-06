@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
 using UnityEngine.Events;
@@ -88,15 +89,38 @@ namespace PixelCrew.Model.Data
             return _inventory.Where(item => item.Id == id).Sum(item => item.Value);
         }
 
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+
+            foreach (var joinedItem in joined)
+            {
+                var haveItemsCount = Count(joinedItem.Key);
+
+                if (haveItemsCount < joinedItem.Value)
+                    return false;
+            }
+
+            return true;
+        }
+
         public InventoryItemData[] GetAll(params ItemTag[] tags)
         {
             var result = new List<InventoryItemData>();
-            
+
             foreach (var item in _inventory)
             {
                 var definition = DefinitionsFacade.Instance.Items.Get(item.Id);
                 bool isAllRequirementsMet = tags.All(tag => definition.HasTag(tag));
-                
+
                 if (isAllRequirementsMet == true)
                     result.Add(item);
             }

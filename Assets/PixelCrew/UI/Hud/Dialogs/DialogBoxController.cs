@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Utilities;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
@@ -29,12 +31,14 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
+        private UnityEvent _callback;
+
         private void Start()
         {
             _source = AudioUtils.FindSfxSource();
         }
 
-        public void ShowDialog(DialogData dialogData)
+        public void ShowDialog(DialogData dialogData, UnityEvent callback = null)
         {
             _dialogData = dialogData;
             _currentSentence = 0;
@@ -43,6 +47,9 @@ namespace PixelCrew.UI.Hud.Dialogs
             _container.SetActive(true);
             _source.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
+
+            if (callback != null)
+                _callback = callback;
         }
 
         public void OnSkip()
@@ -76,6 +83,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         {
             _animator.SetBool(IsOpen, false);
             _source.PlayOneShot(_close);
+            _callback?.Invoke();
         }
 
         private void StopTypingAnimation()

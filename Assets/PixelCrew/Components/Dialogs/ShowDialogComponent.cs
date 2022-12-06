@@ -3,6 +3,7 @@ using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.UI.Hud.Dialogs;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.Components.Dialogs
 {
@@ -11,6 +12,7 @@ namespace PixelCrew.Components.Dialogs
         [SerializeField] private DialogMode _mode;
         [SerializeField] private DialogData _bound;
         [SerializeField] private DialogDefinition _external;
+        [SerializeField] private UnityEvent _onFinished;
 
         private DialogBoxController _dialogBox;
 
@@ -31,8 +33,8 @@ namespace PixelCrew.Components.Dialogs
         {
             if (_dialogBox == null)
                 _dialogBox = FindDialogBox();
-            
-            _dialogBox.ShowDialog(Data);
+
+            _dialogBox.ShowDialog(Data, _onFinished);
         }
 
         private DialogBoxController FindDialogBox()
@@ -51,7 +53,7 @@ namespace PixelCrew.Components.Dialogs
         {
             if (_dialogBox == null)
                 _dialogBox = FindDialogBox();
-            
+
             _dialogBox.ShowDialog(definition.DialogData);
         }
 

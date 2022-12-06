@@ -36,6 +36,8 @@ namespace PixelCrew.Creatures.Hero
             _input.Hero.NextItem.started += OnNextItem;
 
             _input.Hero.UseItem.started += OnUseItem;
+
+            _input.Hero.UsePerk.started += OnUsePerk;
         }
 
         private void OnEnable()
@@ -114,6 +116,15 @@ namespace PixelCrew.Creatures.Hero
         private void OnQueueThrow(InputAction.CallbackContext context)
         {
             StartCoroutine(_thrower.TryThrowQueue());
+        }
+
+        private void OnUsePerk(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                print("Yes, I start use shield");
+                _hero.OnUsePerk();
+            }
         }
     }
 }

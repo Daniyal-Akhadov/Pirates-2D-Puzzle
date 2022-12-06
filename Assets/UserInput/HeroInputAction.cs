@@ -107,6 +107,15 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UsePerk"",
+                    ""type"": ""Button"",
+                    ""id"": ""947aa92d-9b3c-479a-a7ae-1ecb0cc84ad6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -373,6 +382,17 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54ccd776-e89b-4a16-9f26-8c4a905c6112"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""UsePerk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -412,6 +432,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_QueueThrow = m_Hero.FindAction("QueueThrow", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
+        m_Hero_UsePerk = m_Hero.FindAction("UsePerk", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -480,6 +501,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_QueueThrow;
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_UseItem;
+    private readonly InputAction m_Hero_UsePerk;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -493,6 +515,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @QueueThrow => m_Wrapper.m_Hero_QueueThrow;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
+        public InputAction @UsePerk => m_Wrapper.m_Hero_UsePerk;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -529,6 +552,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UseItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
                 @UseItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
                 @UseItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @UsePerk.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UsePerk.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UsePerk.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -560,6 +586,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UseItem.started += instance.OnUseItem;
                 @UseItem.performed += instance.OnUseItem;
                 @UseItem.canceled += instance.OnUseItem;
+                @UsePerk.started += instance.OnUsePerk;
+                @UsePerk.performed += instance.OnUsePerk;
+                @UsePerk.canceled += instance.OnUsePerk;
             }
         }
     }
@@ -593,5 +622,6 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnQueueThrow(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
+        void OnUsePerk(InputAction.CallbackContext context);
     }
 }

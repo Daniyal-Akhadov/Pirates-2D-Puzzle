@@ -1,6 +1,7 @@
 using System.Linq;
 using PixelCrew.Components.GameObjectBased;
 using PixelCrew.Creatures.Core;
+using PixelCrew.Model;
 using PixelCrew.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,6 +17,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _rayDistance = 0.5f;
         [SerializeField] private UnityEvent _onJumped;
 
+        private GameSession _session;
         private Rigidbody2D _rigidbody;
         private Animator _animator;
         private bool _isGround;
@@ -27,7 +29,7 @@ namespace PixelCrew.Creatures.Hero
         private const float AvailableAngleForJumping = 45f;
         private const float StopJumpingMultiplier = 0.8f;
         private const float RelativeVelocityToShowFallDust = 15f;
-        
+
         public bool IsJumping { get; private set; }
 
         private void FixedUpdate()
@@ -38,7 +40,8 @@ namespace PixelCrew.Creatures.Hero
             {
                 bool isFall = velocity.y <= 0.05f;
                 bool isFirstJump = _isGround == true && isFall == true;
-                bool isSecondJump = _isDoubleJumpAvailable == true && isFall == true;
+                bool isSecondJump = _isDoubleJumpAvailable == true
+                                    && isFall == true;
 
                 switch (_currentClick)
                 {
@@ -47,7 +50,7 @@ namespace PixelCrew.Creatures.Hero
                         AddForce();
                         _isGround = false;
                         break;
-                    case 2 when isSecondJump == true:
+                    case 2 when isSecondJump == true && _session.PerksModel.IsDoubleJumpSupported:
                         AddForce();
                         _isDoubleJumpAvailable = false;
                         break;
@@ -129,10 +132,11 @@ namespace PixelCrew.Creatures.Hero
             Gizmos.DrawRay(_rayPoint.position, Vector3.down * _rayDistance);
         }
 
-        public void Init(Animator animator, Rigidbody2D rigidbody)
+        public void Init(Animator animator, Rigidbody2D rigidbody, GameSession session)
         {
             _animator = animator;
             _rigidbody = rigidbody;
+            _session = session;
         }
 
         public void Jump(bool pressed)

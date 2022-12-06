@@ -74,6 +74,12 @@ namespace PixelCrew.Creatures.Hero
 
         public IEnumerator TryThrowQueue()
         {
+            if (_session.PerksModel.IsSuperThrowSupported == false)
+                yield break;
+
+            if (CanThrow == false)
+                yield break;
+            
             var selectedCount = _session.Data.Inventory.Count(SelectedItem.Id);
             int throwCount = Mathf.Min(_queueCount, selectedCount);
 

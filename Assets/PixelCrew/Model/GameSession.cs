@@ -20,7 +20,23 @@ namespace PixelCrew.Model
 
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
-        public bool IsDefaultCheckPoint =>  _checkPointsChecked.Last() == _defaultCheckPoint;
+        public PerksModel PerksModel { get; private set; }
+
+        public bool IsDefaultCheckPoint
+        {
+            get
+            {
+                bool result = false;
+                
+                if (HasCheckpoints == true)
+                    result = _checkPointsChecked.Last() == _defaultCheckPoint;
+                
+                return result;
+            }
+        }
+
+        private bool HasCheckpoints => _checkPointsChecked.Count != 0;
+
 
         private void Awake()
         {
@@ -90,6 +106,9 @@ namespace PixelCrew.Model
         {
             QuickInventory = new QuickInventoryModel(Data);
             _trash.Retain(QuickInventory);
+
+            PerksModel = new PerksModel(Data);
+            _trash.Retain(PerksModel);
         }
 
         private void LoadHud()

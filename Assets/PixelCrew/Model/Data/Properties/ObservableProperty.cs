@@ -18,7 +18,7 @@ namespace PixelCrew.Model.Data.Properties
             OnChanged += call;
             return new ActionDisposable(() => OnChanged -= call);
         }
-        
+
         public IDisposable SubscribeAndInvoke(OnPropertyChanged call)
         {
             OnChanged += call;
@@ -31,7 +31,9 @@ namespace PixelCrew.Model.Data.Properties
             get => _value;
             set
             {
-                var isSame = _value.Equals(value);
+                bool isSame = false;
+                if (_value != null)
+                    isSame = _value.Equals(value);
                 if (isSame == true) return;
 
                 var oldValue = _value;

@@ -15,4 +15,5 @@ MonoBehaviour:
   _items: {fileID: 11400000, guid: 6b575775ceb85e149b82d41cf02dd935, type: 2}
   _throwableItems: {fileID: 11400000, guid: 23abcf0b384d708439a1913cd1d4ae69, type: 2}
   _potionRepository: {fileID: 11400000, guid: 48134084dd11e804e89e60b13dfbda68, type: 2}
+  _perksRepository: {fileID: 11400000, guid: 9b119c2507021854ab309632a7bb692d, type: 2}
   _playerDefinitions: {fileID: 11400000, guid: 048e60f828111a143b494d2715441fc1, type: 2}

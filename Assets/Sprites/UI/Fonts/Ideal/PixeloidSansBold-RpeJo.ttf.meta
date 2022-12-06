@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a0da661e83ced4946912b6b680f3deb6
+guid: 7b5b1aaa8818fd14da617a334bba941e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Custom Font ttf 16h 1.0
-  fallbackFontReferences: []
+  - Pixeloid Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2abf65b2f87785a40a0959e1639896b4, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

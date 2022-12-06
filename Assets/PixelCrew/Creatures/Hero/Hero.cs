@@ -29,6 +29,7 @@ namespace PixelCrew.Creatures.Hero
         private HealthComponent _health;
         private ProjectileThrower _thrower;
         private HeroAttacker _attacker;
+        private ShieldComponent _shield;
 
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
 
@@ -40,6 +41,7 @@ namespace PixelCrew.Creatures.Hero
             _interact = GetComponent<HeroInteract>();
             _health = GetComponent<HealthComponent>();
             _thrower = GetComponent<ProjectileThrower>();
+            _shield = GetComponentInChildren<ShieldComponent>();
         }
 
         private void Start()
@@ -48,7 +50,7 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
 
             _coinScore.Init(_session);
-            _jumper.Init(Animator, Rigidbody);
+            _jumper.Init(Animator, Rigidbody, _session);
             _thrower.Init(Animator, Sounds, _session);
             _health.SetOriginHealth(_session.Data.Health.Value);
 
@@ -92,6 +94,15 @@ namespace PixelCrew.Creatures.Hero
                 _thrower.TryThrow();
             else if (IsSelectedItem(ItemTag.Potion))
                 UsePotion();
+        }
+
+        public void OnUsePerk()
+        {
+            if (_session.PerksModel.IsSuperShieldSupported)
+            {
+                print("OneUsePerk");
+                _shield.TryUse();
+            }
         }
 
         private void OnInventoryChanged(string id, int value)

@@ -6692,6 +6692,11 @@ MonoBehaviour:
       _inventory: []
     Health:
       _value: 5
+    PerksData:
+      _used:
+        _value: 
+      _unlocked: []
+  _defaultCheckPoint: level2_checkpoint1
 --- !u!1001 &300994410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24542,6 +24547,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8388869952664762169, guid: eb55915158b95694d878d9f64dc2a511, type: 3}
+      propertyPath: _id
+      value: destrouctableBarrel3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb55915158b95694d878d9f64dc2a511, type: 3}
 --- !u!4 &1871797253 stripped
@@ -24849,6 +24858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2028884911}
+  _state: {fileID: 0}
 --- !u!114 &2028884916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25433,6 +25443,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8388869952664762169, guid: eb55915158b95694d878d9f64dc2a511, type: 3}
+      propertyPath: _id
+      value: destrouctableBarrel2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb55915158b95694d878d9f64dc2a511, type: 3}
 --- !u!1001 &704201658868851706
@@ -25609,8 +25623,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrabbyCaptain
       objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1405149686291293193}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1405149686291293193}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PixelCrew.Components.Interactions.ShowWindowComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PixelCrew.Components.Dialogs.ShowDialogComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405149685346166909, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+--- !u!1 &1405149686291293192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1405149685346166898, guid: 80e2d16413f60744c9e6a2291d8ca275, type: 3}
+  m_PrefabInstance: {fileID: 1405149686291293191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1405149686291293193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405149686291293192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac16bbdb2a348d8939575a0b68e9898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: UI/ManagerPerkWIndow
 --- !u!1001 &1430793870227811996
 PrefabInstance:
   m_ObjectHideFlags: 0

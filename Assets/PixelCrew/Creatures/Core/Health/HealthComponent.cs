@@ -13,8 +13,13 @@ namespace PixelCrew.Creatures.Core.Health
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthChangedEvent _onChanged;
 
+        public bool IsArmed;
+
         public void ModifyHealth(GameObject attacker, int delta)
         {
+            if (delta < 0 && IsArmed == true)
+                return;
+
             _health += delta;
             _health = Mathf.Clamp(_health, _health, DefinitionsFacade.Instance.PlayerDefinitions.MaxHealth);
             _onChanged?.Invoke(_health);

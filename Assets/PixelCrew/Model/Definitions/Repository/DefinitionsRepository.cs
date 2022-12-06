@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Repository
 {
     public class DefinitionsRepository<TDefType> : ScriptableObject where TDefType : IHaveId
     {
         [SerializeField] protected TDefType[] Collection;
+
+        public TDefType[] All => new List<TDefType>(Collection).ToArray();
 
         public TDefType Get(string id)
         {
