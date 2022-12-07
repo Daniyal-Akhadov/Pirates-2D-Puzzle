@@ -1,9 +1,11 @@
-﻿using PixelCrew.Components;
+﻿using System;
+using PixelCrew.Components;
 using PixelCrew.Creatures.Core;
 using PixelCrew.Creatures.Core.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
@@ -48,11 +50,12 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
 
             _coinScore.Init(_session);
             _jumper.Init(Animator, Rigidbody, _session);
             _thrower.Init(Animator, Sounds, _session);
-            _health.SetOriginHealth(_session.Data.Health.Value);
+            // _health.SetOriginHealth(_session.Data.Health.Value);
 
             _attacker = Attacker as HeroAttacker;
 
@@ -60,6 +63,27 @@ namespace PixelCrew.Creatures.Hero
             {
                 _attacker.Init(Animator, _session);
                 _reader.Init(Movement, _jumper, _interact, _attacker, _thrower, this);
+            }
+        }
+
+        private void OnHeroUpgraded(StatId id)
+        {
+            switch (id)
+            {
+                case StatId.Hp:
+                    var health = (int)_session.StatsModel.GetValue(id);
+                    _session.Data.Health.Value = health;
+                    _health.SetOriginHealth(health);
+                    break;
+                case StatId.Speed:
+                    Movement.SetSpeed(_session.StatsModel.GetValue(StatId.Speed));
+                    break;
+                case StatId.RangeDamage:
+                    break;
+                case StatId.CriticalDamage:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(id), id, null);
             }
         }
 

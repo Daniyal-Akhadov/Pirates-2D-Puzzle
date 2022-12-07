@@ -17,18 +17,18 @@ namespace PixelCrew.Components.GameObjectBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var newObject = SpawnUtils.Spawn(_target, _spawnPoint.position);
-            newObject.transform.localScale = _spawnPoint.lossyScale;
-
-            if (_mergeToPoint == true)
-                newObject.transform.parent = _spawnPoint;
+            SpawnInstance();
         }
 
-        public void Spawn(Vector3 position)
+        public GameObject SpawnInstance()
         {
-            var newObject = Instantiate(_target, position, Quaternion.identity);
-            newObject.SetActive(true);
+            var newObject = SpawnUtils.Spawn(_target, _spawnPoint.position);
             newObject.transform.localScale = _spawnPoint.lossyScale;
+            newObject.SetActive(true);
+            if (_mergeToPoint == true)
+                newObject.transform.parent = _spawnPoint;
+
+            return newObject;
         }
     }
 }

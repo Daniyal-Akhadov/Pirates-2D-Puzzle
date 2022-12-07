@@ -13,4 +13,88 @@ MonoBehaviour:
   m_Name: PlayerDefinitions
   m_EditorClassIdentifier: 
   _inventorySize: 5
-  _maxHealth: 5
+  _stats:
+  - _name: Hp
+    _id: 0
+    _icon: {fileID: 21300000, guid: fb20054d2c13af54f9a0ec378d02c7e9, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        itemId: Coin
+        _count: 0
+    - _value: 6
+      _price:
+        itemId: Coin
+        _count: 250
+    - _value: 7
+      _price:
+        itemId: Coin
+        _count: 500
+    - _value: 8
+      _price:
+        itemId: Coin
+        _count: 800
+  - _name: Speed
+    _id: 1
+    _icon: {fileID: 21300000, guid: 03029298055e4814db121645c21d7ccb, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        itemId: 
+        _count: 0
+    - _value: 6
+      _price:
+        itemId: Coin
+        _count: 500
+    - _value: 7
+      _price:
+        itemId: Coin
+        _count: 1000
+  - _name: Range Damage
+    _id: 2
+    _icon: {fileID: 21300000, guid: 59cb006789218544282475e1b850c8c2, type: 3}
+    _levels:
+    - _value: 1
+      _price:
+        itemId: 
+        _count: 0
+    - _value: 2
+      _price:
+        itemId: Coin
+        _count: 200
+    - _value: 3
+      _price:
+        itemId: Coin
+        _count: 400
+    - _value: 4
+      _price:
+        itemId: Coin
+        _count: 600
+    - _value: 5
+      _price:
+        itemId: Coin
+        _count: 800
+  - _name: Critical Damage
+    _id: 3
+    _icon: {fileID: 21300000, guid: bde616fafb1d0ef4396584b93d5ba56d, type: 3}
+    _levels:
+    - _value: 0
+      _price:
+        itemId: Coin
+        _count: 0
+    - _value: 10
+      _price:
+        itemId: Coin
+        _count: 400
+    - _value: 20
+      _price:
+        itemId: Coin
+        _count: 600
+    - _value: 30
+      _price:
+        itemId: Coin
+        _count: 800
+    - _value: 40
+      _price:
+        itemId: Coin
+        _count: 1000

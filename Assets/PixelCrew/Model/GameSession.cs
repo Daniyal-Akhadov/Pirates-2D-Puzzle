@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions.Player;
+using PixelCrew.Model.Models;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,16 +23,18 @@ namespace PixelCrew.Model
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
+        
+        public StatsModel StatsModel { get; private set; }
 
         public bool IsDefaultCheckPoint
         {
             get
             {
                 bool result = false;
-                
+
                 if (HasCheckpoints == true)
                     result = _checkPointsChecked.Last() == _defaultCheckPoint;
-                
+
                 return result;
             }
         }
@@ -109,6 +113,11 @@ namespace PixelCrew.Model
 
             PerksModel = new PerksModel(Data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(Data);
+            _trash.Retain(StatsModel);
+
+            _data.Health.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 
         private void LoadHud()

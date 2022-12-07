@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
-using PixelCrew.Components;
-using Unity.VisualScripting;
 using UnityEngine;
-using Cooldown = PixelCrew.Utilities.TimeManagement.Cooldown;
 
 namespace PixelCrew.Creatures.Core
 {
@@ -14,9 +11,10 @@ namespace PixelCrew.Creatures.Core
         private float _direction;
         private Rigidbody2D _rigidbody;
         private Animator _animator;
+        private float _speedUpValue;
 
         private const float DiedZone = 0.01f;
-        
+
         public bool IsSpeedUpWork { get; private set; }
 
         private void FixedUpdate()
@@ -70,11 +68,25 @@ namespace PixelCrew.Creatures.Core
         public IEnumerator SpeedUp(float value, float duration, Action callback = null)
         {
             IsSpeedUpWork = true;
-            _speed += value;
+            _speedUpValue = value;
+            _speed += _speedUpValue;
             yield return new WaitForSeconds(duration);
-            _speed -= value;
+            _speed -= _speedUpValue;
+            _speedUpValue = 0;
             IsSpeedUpWork = false;
             callback?.Invoke();
+        }
+
+        public void SetSpeed(float speed)
+        {
+            if (IsSpeedUpWork == true)
+            {
+                _speed = _speedUpValue + speed;
+            }
+            else
+            {
+                _speed = speed;
+            }
         }
     }
 }

@@ -2,9 +2,11 @@
 using PixelCrew.Components.Audio;
 using PixelCrew.Components.GameObjectBased;
 using PixelCrew.Creatures.Core;
+using PixelCrew.Creatures.Core.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utilities.TimeManagement;
 using UnityEngine;
@@ -58,7 +60,8 @@ namespace PixelCrew.Creatures.Hero
             var throwableId = _session.QuickInventory.SelectedItem.Id;
             var throwableDefinition = DefinitionsFacade.Instance.ThrowableRepository.Get(throwableId);
             _projectileSpawner.SetTarget(throwableDefinition.Projectile);
-            _projectileSpawner.Spawn();
+            var instance = _projectileSpawner.SpawnInstance();
+            ApplyRangeDamageStat(instance);
             _session.Data.Inventory.Remove(throwableId, 1);
             _sounds.Play("Range");
         }
@@ -79,7 +82,7 @@ namespace PixelCrew.Creatures.Hero
 
             if (CanThrow == false)
                 yield break;
-            
+
             var selectedCount = _session.Data.Inventory.Count(SelectedItem.Id);
             int throwCount = Mathf.Min(_queueCount, selectedCount);
 
@@ -101,6 +104,26 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        private void ApplyRangeDamageStat(GameObject projectile)
+        {
+            var modifyHealth = projectile.GetComponent<ModifyHealthComponent>();
+            int damage = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            int criticalDamage = CalculateCriticalDamage(damage);
+            modifyHealth.SetValue(-criticalDamage);
+        }
+
+        private int CalculateCriticalDamage(int damage)
+        {
+            float chance = _session.StatsModel.GetValue(StatId.CriticalDamage);
+
+            if (Random.value * 100 <= chance)
+            {
+                damage *= 2;
+            }
+
+            return damage;
+        }
+        
         private void Throw()
         {
             _animator.SetTrigger(CreatureAnimations.Throw);

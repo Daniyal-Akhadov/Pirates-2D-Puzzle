@@ -1021,6 +1021,7 @@ MonoBehaviour:
       m_Calls: []
   _armed: {fileID: 9100000, guid: c40dcf14c3247c844b8917d24c5a3753, type: 2}
   _unarmed: {fileID: 9100000, guid: baf33e08f22a13e438f14aa9b5363815, type: 2}
+  _modifyHealth: {fileID: 617452006}
 --- !u!114 &6172497455716126300
 MonoBehaviour:
   m_ObjectHideFlags: 0

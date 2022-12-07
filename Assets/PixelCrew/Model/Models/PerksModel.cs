@@ -1,10 +1,11 @@
 ﻿using System;
+using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 
-namespace PixelCrew.Model.Data
+namespace PixelCrew.Model.Models
 {
     public class PerksModel : IDisposable
     {
