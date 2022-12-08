@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 976
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 81
+  controlID: 58
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 74
+  controlID: 92
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 151
+  controlID: 98
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 75
+  controlID: 93
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -412,7 +412,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 20.333313}
     m_SelectedIDs: 0e910000
     m_LastClickedID: 37134
-    m_ExpandedIDs: 000000000a720000207200005e98000000ca9a3b
+    m_ExpandedIDs: 00000000e4670000e6670000e8670000ea670000ec670000ee670000f0670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,7 +440,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000e4670000e6670000e8670000ea670000ec670000ee670000f0670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -687,7 +687,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25.333334}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -835,9 +835,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.9578288, y: -0.5579694, z: 7.2996893}
+    m_Target: {x: 3.9039288, y: -4.2686024, z: -0.41462633}
     speed: 2
-    m_Value: {x: -0.9578288, y: -0.5579694, z: 7.2996893}
+    m_Value: {x: 3.9039288, y: -4.2686024, z: -0.41462633}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -888,9 +888,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.4073613
+    m_Target: 9.376377
     speed: 2
-    m_Value: 2.4073613
+    m_Value: 9.376377
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1366,7 +1366,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 580192
+  m_LastSelectedObjectID: 57712
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1398,9 +1398,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 9ae6ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: e8b0f6ff4adaf6fff0daf6ff3edbf6ff94dbf6ffa2dbf6ffaadbf6ff24e5f6ff3cedf6ff7c74f7ff8875f7ffb475f7ff3c77f7ff4277f7ff5677f7ff6477f7ff6c77f7ffae77f7ff78c8f7ffc8e5f7ffcce5f7ffd0e5f7ff8606f8ff8a06f8ff8c06f8ffc028f8ffc428f8ff0065f8ff3cb3fbff3ebcfbff64f0fbff7ef4fbffd837fcff146dfcff30d9fcff1aeefcff5efffcff62fffcffa0a2fdffa4a2fdffec12feff862bfeffea30feff3038feff1239feff6e3bfeff50ccfeff02f0feffaa01fffff401ffff2286ffff6ac6ffff1ae9ffff44ecffff04fbfffff4ffffff70ab0000a0ab0000c0b10000f6540100265501003cbd01006cbd01009ef70100cef7010002f801005673020086730200207802005078020084780200fe7d0200508002007c800200b28002008e9b0200be9b020006a3030036a303001eec03004eec030082ec030074a30600a6180700d61807000a190700643a0700943a0700d67b0800
+      m_ExpandedIDs: 1cf0ffff5cf9ffff04fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1465,22 +1465,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Creatures/HeroParts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Creatures/HeroParts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\daha\UnityHubProjects\Pirates-2D-Puzzle
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 240.33331}
-    m_SelectedIDs: 50720000
-    m_LastClickedID: 29264
-    m_ExpandedIDs: 000000000a7200000c7200000e720000107200001a72000022720000247200005272000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 6a680000
+    m_LastClickedID: 26730
+    m_ExpandedIDs: 00000000e4670000e6670000e8670000ea670000ec670000ee670000f067000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1508,7 +1508,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000a7200000c7200000e72000010720000
+    m_ExpandedIDs: 00000000e4670000e6670000e8670000ea670000ec670000ee670000f0670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1539,18 +1539,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000406c0000ca9200006802070038710000546e00001c6f00003889000042760000b6740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Stats
-      m_OriginalName: Stats
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 532824
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 308.66666}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 206
