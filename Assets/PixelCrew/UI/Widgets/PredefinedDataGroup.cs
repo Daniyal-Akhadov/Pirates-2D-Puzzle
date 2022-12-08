@@ -13,12 +13,12 @@ namespace PixelCrew.UI.Widgets
             CreatedItems.AddRange(items);
         }
 
-        public override void SetData(IList<TDataType> data)
+        public override void SetData(IList<TDataType> data, bool turnOf = true)
         {
             if (data.Count > CreatedItems.Count)
                 throw new IndexOutOfRangeException();
-            
-            base.SetData(data);
+
+            base.SetData(data, turnOf);
         }
     }
 }

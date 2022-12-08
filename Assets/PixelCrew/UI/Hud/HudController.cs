@@ -31,7 +31,7 @@ namespace PixelCrew.UI.Hud
 
         public void OnDebug()
         {
-            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
+            WindowUtils.CreateWindow("UI/FullInventory");
         }
         
         private void OnHealthChanged(int newValue, int oldValue)

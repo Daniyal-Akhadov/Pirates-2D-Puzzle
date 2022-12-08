@@ -15,25 +15,25 @@ MonoBehaviour:
   Collection:
   - _id: Coin
     _icon: {fileID: 1132622054, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-    _tags: 0000000001000000
-  - _id: Sword
-    _icon: {fileID: 21300000, guid: 6a4f2148bdf297041831541381d004cd, type: 3}
-    _tags: 000000000100000002000000
+    _tags: 00000000
   - _id: Key
     _icon: {fileID: 21300000, guid: cdc4bf56277e5b3479481a246cbf78d3, type: 3}
-    _tags: 
+    _tags: 00000000
+  - _id: Sword
+    _icon: {fileID: 21300000, guid: 6a4f2148bdf297041831541381d004cd, type: 3}
+    _tags: 0000000002000000
   - _id: PearlProjectile
     _icon: {fileID: 21300000, guid: 8d9f7565f7928d94f87c87aad501ad8c, type: 3}
-    _tags: 000000000100000002000000
+    _tags: 0000000002000000
   - _id: SmallHealthPotion
     _icon: {fileID: 21300000, guid: 8d9f7565f7928d94f87c87aad501ad8c, type: 3}
-    _tags: 000000000100000003000000
+    _tags: 0000000003000000
   - _id: LargeSpellPotion
     _icon: {fileID: 21300000, guid: 97f90534e24eaac4384292f685c7681c, type: 3}
-    _tags: 010000000000000003000000
+    _tags: 0000000003000000
   - _id: SpeedUpPotion
     _icon: {fileID: 21300000, guid: c8b9e1083a0fecd4aad05ee394e61c0c, type: 3}
-    _tags: 010000000000000003000000
+    _tags: 0000000003000000
   - _id: GreenDiamond
     _icon: {fileID: 21300000, guid: eeb3491cc6c078344b9f48004f38a827, type: 3}
-    _tags: 0100000000000000
+    _tags: 00000000

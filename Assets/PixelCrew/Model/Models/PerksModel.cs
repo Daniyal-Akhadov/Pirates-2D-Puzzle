@@ -55,6 +55,23 @@ namespace PixelCrew.Model.Models
             }
         }
 
+        public bool IsDashSupported
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Used) == true)
+                    return false;
+
+                var first = Used == "dash";
+                var second = GetPerkDefinitionBy(Used).Cooldown.IsReady;
+
+                Debug.Log(first);
+                Debug.Log(second);
+
+                return Used == "dash" && GetPerkDefinitionBy(Used).Cooldown.IsReady && InvokeUsed();
+            }
+        }
+
         public event Action OnChanged;
 
         public event Action OnUsedPerk;

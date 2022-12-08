@@ -128,7 +128,27 @@ namespace PixelCrew.Model.Data
             return result.ToArray();
         }
 
-        private InventoryItemData GetItem(string id)
+        public InventoryItemData[] GetAllInQuick()
+        {
+            var result = new List<InventoryItemData>();
+
+            foreach (var item in _inventory)
+            {
+                if (item.InQuick == true)
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        public InventoryItemData[] GetAll()
+        {
+            return _inventory.ToArray();
+        }
+
+        public InventoryItemData GetItem(string id)
         {
             return _inventory.FirstOrDefault(itemData => itemData.Id == id);
         }
@@ -144,5 +164,7 @@ namespace PixelCrew.Model.Data
         {
             Id = id;
         }
+
+        public bool InQuick { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using PixelCrew.Model;
+﻿using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repository.Items;
@@ -13,37 +12,38 @@ namespace PixelCrew.UI.Hud.QuickInventory
 {
     public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
     {
-        [SerializeField] private Image _icon;
+        [SerializeField] protected Image _icon;
         [SerializeField] private GameObject _selection;
-        [SerializeField] private TMP_Text _value;
+        [SerializeField] protected TMP_Text _value;
 
-        private readonly CompositeDisposable _trash = new();
-        private int _index;
+        protected int Index = -1;
 
-        private void Start()
+        protected GameSession Session;
+        protected readonly CompositeDisposable Trash = new();
+
+        protected virtual void Start()
         {
-            var session = FindObjectOfType<GameSession>();
-            _trash.Retain(session.QuickInventory.SelectedIndex.SubscribeAndInvoke(OnIndexChanged));
+            Session = FindObjectOfType<GameSession>();
         }
 
         private void OnDestroy()
         {
-            _trash?.Dispose();
+            Trash?.Dispose();
         }
 
-        private void OnIndexChanged(int newValue, int _)
+        protected void OnIndexChanged(int newValue, int _)
         {
-            _selection.SetActive(_index == newValue);
+            print($"OnIndexChanged {gameObject.name} {Index == newValue}");
+            _selection.SetActive(Index == newValue);
         }
 
-        public void SetData(InventoryItemData item, int index)
+        public virtual void SetData(InventoryItemData item, int index)
         {
-            _index = index;
-            
+            Index = index;
+
             var definition = DefinitionsFacade.Instance.Items.Get(item.Id);
             _icon.sprite = definition.Icon;
-            _value.text = definition.HasTag(ItemTag.Stackable) == true ? 
-                item.Value.ToString() : string.Empty;
+            _value.text = definition.HasTag(ItemTag.Stackable) == true ? item.Value.ToString() : string.Empty;
         }
     }
 }

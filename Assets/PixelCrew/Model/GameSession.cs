@@ -5,6 +5,7 @@ using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Models;
+using PixelCrew.UI.Windows.Inventory;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,8 +23,11 @@ namespace PixelCrew.Model
 
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
-        public PerksModel PerksModel { get; private set; }
         
+        public FullInventoryModel FullInventoryModel { get; private set; }
+        
+        public PerksModel PerksModel { get; private set; }
+
         public StatsModel StatsModel { get; private set; }
 
         public bool IsDefaultCheckPoint
@@ -108,7 +112,10 @@ namespace PixelCrew.Model
 
         private void InitModels()
         {
-            QuickInventory = new QuickInventoryModel(Data);
+            FullInventoryModel = new FullInventoryModel(Data);
+            _trash.Retain(FullInventoryModel);
+            
+            QuickInventory = new QuickInventoryModel(Data, this);
             _trash.Retain(QuickInventory);
 
             PerksModel = new PerksModel(Data);
@@ -116,6 +123,7 @@ namespace PixelCrew.Model
 
             StatsModel = new StatsModel(Data);
             _trash.Retain(StatsModel);
+
 
             _data.Health.Value = (int)StatsModel.GetValue(StatId.Hp);
         }

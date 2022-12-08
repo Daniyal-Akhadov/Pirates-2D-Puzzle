@@ -122,7 +122,6 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.started)
             {
-                print("Yes, I start use shield");
                 _hero.OnUsePerk();
             }
         }

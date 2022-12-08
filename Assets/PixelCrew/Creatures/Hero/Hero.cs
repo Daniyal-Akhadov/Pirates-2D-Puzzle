@@ -8,6 +8,7 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Model.Definitions.Repository.Items;
+using PixelCrew.UI.Windows.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +21,7 @@ namespace PixelCrew.Creatures.Hero
     [RequireComponent(typeof(HeroInteract))]
     [RequireComponent(typeof(HealthComponent))]
     [RequireComponent(typeof(ProjectileThrower))]
+    [RequireComponent(typeof(DashComponent))]
     public class Hero : Creature
     {
         [SerializeField] private HeroInputReader _reader;
@@ -32,6 +34,8 @@ namespace PixelCrew.Creatures.Hero
         private ProjectileThrower _thrower;
         private HeroAttacker _attacker;
         private ShieldComponent _shield;
+        private DashComponent _dash;
+        private FullInventoryController _fullInventoryController;
 
         private InventoryItemData SelectedItem => _session.QuickInventory.SelectedItem;
 
@@ -44,11 +48,13 @@ namespace PixelCrew.Creatures.Hero
             _health = GetComponent<HealthComponent>();
             _thrower = GetComponent<ProjectileThrower>();
             _shield = GetComponentInChildren<ShieldComponent>();
+            _dash = GetComponent<DashComponent>();
         }
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+            _fullInventoryController = FindObjectOfType<FullInventoryController>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
 
@@ -109,7 +115,10 @@ namespace PixelCrew.Creatures.Hero
 
         public void NextItem()
         {
-            _session.QuickInventory.SetNextItem();
+            if (_fullInventoryController.gameObject.activeSelf == true)
+                _session.FullInventoryModel.SetNextItem();
+            else
+                _session.QuickInventory.SetNextItem();
         }
 
         public void OnUseItem()
@@ -124,8 +133,11 @@ namespace PixelCrew.Creatures.Hero
         {
             if (_session.PerksModel.IsSuperShieldSupported)
             {
-                print("OneUsePerk");
                 _shield.TryUse();
+            }
+            else if (_session.PerksModel.IsDashSupported)
+            {
+                _dash.Use();
             }
         }
 

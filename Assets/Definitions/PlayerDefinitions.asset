@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec77810b305c47c6ac29a1c66757a56a, type: 3}
   m_Name: PlayerDefinitions
   m_EditorClassIdentifier: 
-  _inventorySize: 5
+  _inventorySize: 3
   _stats:
   - _name: Hp
     _id: 0

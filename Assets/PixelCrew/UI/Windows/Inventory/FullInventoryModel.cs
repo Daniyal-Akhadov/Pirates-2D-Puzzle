@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
-using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utilities.Disposables;
 using UnityEngine;
 
-namespace PixelCrew.Model.Data
+namespace PixelCrew.UI.Windows.Inventory
 {
-    public class QuickInventoryModel : IDisposable
+    public class FullInventoryModel : IDisposable
     {
         private readonly PlayerData _playerData;
-
         public readonly IntProperty SelectedIndex = new();
-        private readonly GameSession _session;
         public List<InventoryItemData> Inventory { get; private set; }
 
         public InventoryItemData SelectedItem
@@ -32,27 +29,19 @@ namespace PixelCrew.Model.Data
             }
         }
 
-        public ItemDefinition SelectedItemDefinition => DefinitionsFacade.Instance.Items.Get(SelectedItem?.Id);
+        private event Action<InventoryItemData> OnFullInventoryChanged;
 
-        private event Action OnQuickInventoryChanged;
-
-        public QuickInventoryModel(PlayerData data, GameSession session)
+        public FullInventoryModel(PlayerData data)
         {
             _playerData = data;
-            _session = session;
-            Inventory = _playerData.Inventory.GetAll(ItemTag.Usable).Take(3).ToList();
+            Inventory = _playerData.Inventory.GetAll().ToList();
             _playerData.Inventory.OnChanged += OnInventoryChanged;
         }
 
-        public void Dispose()
+        public IDisposable Subscribe(Action<InventoryItemData> call)
         {
-            _playerData.Inventory.OnChanged -= OnInventoryChanged;
-        }
-
-        public IDisposable Subscribe(Action call)
-        {
-            OnQuickInventoryChanged += call;
-            return new ActionDisposable(() => OnQuickInventoryChanged -= call);
+            OnFullInventoryChanged += call;
+            return new ActionDisposable(() => OnFullInventoryChanged -= call);
         }
 
         public void SetNextItem()
@@ -60,17 +49,17 @@ namespace PixelCrew.Model.Data
             SelectedIndex.Value = (int)Mathf.Repeat(1 + SelectedIndex.Value, Inventory.Count);
         }
 
-        public bool Has(InventoryItemData item)
+        public void Dispose()
         {
-            return Inventory.Contains(item);
+            _playerData.Inventory.OnChanged -= OnInventoryChanged;
         }
 
         private void OnInventoryChanged(string id, int value)
         {
-            var quickSize = DefinitionsFacade.Instance.PlayerDefinitions.InventorySize;
-            Inventory = _session.QuickInventory.Inventory.Take(quickSize).ToList();
+            Inventory = _playerData.Inventory.GetAll().ToList();
             SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Count - 1);
-            OnQuickInventoryChanged?.Invoke();
+            var item = _playerData.Inventory.GetItem(id);
+            OnFullInventoryChanged?.Invoke(item);
         }
     }
 }
