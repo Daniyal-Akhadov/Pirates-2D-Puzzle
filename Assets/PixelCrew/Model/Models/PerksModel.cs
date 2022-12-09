@@ -136,7 +136,6 @@ namespace PixelCrew.Model.Models
 
         private bool InvokeUsed()
         {
-            Debug.Log("Use perk!");
             OnUsedPerk?.Invoke();
             return true;
         }

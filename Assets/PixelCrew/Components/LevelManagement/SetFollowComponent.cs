@@ -1,5 +1,4 @@
-﻿using System;
-using Cinemachine;
+﻿using Cinemachine;
 using PixelCrew.Creatures.Hero;
 using UnityEngine;
 
@@ -14,4 +13,5 @@ namespace PixelCrew.Components.LevelManagement
             virtualCamera.Follow = FindObjectOfType<Hero>().transform;
         }
     }
+    
 }

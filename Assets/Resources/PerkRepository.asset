@@ -18,7 +18,7 @@ MonoBehaviour:
     _information: This is double jump.
     _price:
       itemId: Coin
-      _count: 1000
+      _count: 1
     _cooldown:
       _value: 0
   - _id: super_throw
