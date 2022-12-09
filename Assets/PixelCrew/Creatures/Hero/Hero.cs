@@ -1,7 +1,8 @@
 ﻿using System;
-using PixelCrew.Components;
 using PixelCrew.Creatures.Core;
 using PixelCrew.Creatures.Core.Health;
+using PixelCrew.Creatures.Hero.Features;
+using PixelCrew.Creatures.Hero.Weapons;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
@@ -25,6 +26,7 @@ namespace PixelCrew.Creatures.Hero
     public class Hero : Creature
     {
         [SerializeField] private HeroInputReader _reader;
+        [SerializeField] private HeroFlashLight _flashLight;
 
         private GameSession _session;
         private HeroCoinScore _coinScore;
@@ -111,6 +113,12 @@ namespace PixelCrew.Creatures.Hero
         public void AddInInventory(string id, int value, UnityEvent callback = null)
         {
             _session.Data.Inventory.Add(id, value, callback);
+        }
+
+        public void ToggleFlashLight()
+        {
+            var isActive = _flashLight.gameObject.activeSelf;
+            _flashLight.gameObject.SetActive(!isActive);
         }
 
         public void NextItem()

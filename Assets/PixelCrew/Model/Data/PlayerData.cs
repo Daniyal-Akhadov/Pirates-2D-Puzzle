@@ -11,10 +11,12 @@ namespace PixelCrew.Model.Data
         [SerializeField] private InventoryData _inventory;
 
         public InventoryData Inventory => _inventory;
-        
+
         public LevelData LevelData = new();
 
         public IntProperty Health = new();
+
+        public FloatProperty Fuel = new();
 
         public PerksData PerksData = new();
 

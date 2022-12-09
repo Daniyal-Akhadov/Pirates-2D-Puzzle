@@ -61,15 +61,21 @@ namespace PixelCrew.UI.Windows.Inventory
         {
             if (item == null)
                 return;
-            
+
             var quickInventory = _session.QuickInventory.Inventory;
             var inventorySize = DefinitionsFacade.Instance.PlayerDefinitions.InventorySize;
 
             if (_session.FullInventoryModel.Inventory.Count <= 0 && quickInventory.Count >= inventorySize)
                 return;
 
+            if (quickInventory.Any(inventoryItemData => inventoryItemData.Id == item.Id))
+            {
+                return;
+            }
+
             item.InQuick = true;
             quickInventory.Add(item);
+            quickInventory.ForEach(inventoryItemData => print(inventoryItemData.ToString()));
             _quickInventoryController.Rebuild();
         }
 

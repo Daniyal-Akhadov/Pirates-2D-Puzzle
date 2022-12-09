@@ -33,7 +33,6 @@ namespace PixelCrew.UI.Hud.QuickInventory
 
         protected void OnIndexChanged(int newValue, int _)
         {
-            print($"OnIndexChanged {gameObject.name} {Index == newValue}");
             _selection.SetActive(Index == newValue);
         }
 

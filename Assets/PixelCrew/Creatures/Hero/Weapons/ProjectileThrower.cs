@@ -11,7 +11,7 @@ using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utilities.TimeManagement;
 using UnityEngine;
 
-namespace PixelCrew.Creatures.Hero
+namespace PixelCrew.Creatures.Hero.Weapons
 {
     public class ProjectileThrower : MonoBehaviour
     {
@@ -56,7 +56,6 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnThrow()
         {
-            print("Throw");
             var throwableId = _session.QuickInventory.SelectedItem.Id;
             var throwableDefinition = DefinitionsFacade.Instance.ThrowableRepository.Get(throwableId);
             _projectileSpawner.SetTarget(throwableDefinition.Projectile);

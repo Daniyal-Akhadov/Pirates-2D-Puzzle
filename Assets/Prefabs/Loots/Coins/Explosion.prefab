@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,15 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _isLoop: 0
-  _sprites:
-  - {fileID: 148798652, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: 2049219455, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: 675573985, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  - {fileID: 1791009677, guid: 962ffd4fedc494a4694b3b6fb1c6cf03, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
   _clips:
   - _name: coin_explosion
     _sprites:
@@ -119,6 +110,9 @@ MonoBehaviour:
     _onCompleted:
       m_PersistentCalls:
         m_Calls: []
+  _onClipComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7963256783947592432
 GameObject:
   m_ObjectHideFlags: 0

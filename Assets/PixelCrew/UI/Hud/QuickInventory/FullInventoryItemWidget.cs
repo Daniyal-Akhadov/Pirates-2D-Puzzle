@@ -1,6 +1,4 @@
-﻿using PixelCrew.Model;
-using PixelCrew.Model.Data;
-using PixelCrew.Model.Definitions.Repository;
+﻿using PixelCrew.Model.Data;
 
 namespace PixelCrew.UI.Hud.QuickInventory
 {

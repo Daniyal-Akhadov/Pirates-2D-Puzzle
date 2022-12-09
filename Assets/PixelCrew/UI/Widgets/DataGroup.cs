@@ -20,24 +20,23 @@ namespace PixelCrew.UI.Widgets
         {
             for (int i = CreatedItems.Count; i < data.Count; i++)
             {
-                Debug.Log("I Create");
                 var item = Object.Instantiate(_prefab, _container);
                 CreatedItems.Add(item);
             }
 
             for (int i = 0; i < data.Count; i++)
             {
-                Debug.Log("I set data");
                 CreatedItems[i].SetData(data[i], i);
                 CreatedItems[i].gameObject.SetActive(true);
             }
 
             if (turnOf == true)
+            {
                 for (int i = data.Count; i < CreatedItems.Count; i++)
                 {
                     CreatedItems[i].gameObject.SetActive(false);
-                    Debug.Log($"I turn of!!!! {CreatedItems[i].gameObject.name}");
                 }
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿using PixelCrew.Model.Data.Properties;
 using UnityEngine;
 
-namespace PixelCrew.Model
+namespace PixelCrew.Model.Data
 {
     [CreateAssetMenu(menuName = "Data/GameSettings", fileName = "GameSettings")]
     public class GameSettingsData : ScriptableObject

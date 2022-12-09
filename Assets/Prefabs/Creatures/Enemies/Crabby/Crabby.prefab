@@ -294,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62285affb9e459cb23f42d4c8254d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 4241471035642452158}
   _sounds: []
 --- !u!1 &4241471035257872197
 GameObject:
@@ -387,7 +386,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -580,6 +579,7 @@ MonoBehaviour:
   _onChanged:
     m_PersistentCalls:
       m_Calls: []
+  IsArmed: 0
 --- !u!61 &3813485007467485584
 BoxCollider2D:
   m_ObjectHideFlags: 0

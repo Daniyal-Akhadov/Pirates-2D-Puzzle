@@ -1,4 +1,5 @@
 using PixelCrew.Creatures.Core;
+using PixelCrew.Creatures.Hero.Weapons;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -38,6 +39,8 @@ namespace PixelCrew.Creatures.Hero
             _input.Hero.UseItem.started += OnUseItem;
 
             _input.Hero.UsePerk.started += OnUsePerk;
+
+            _input.Hero.UseFlashLight.started += OnToggleFlashLight;
         }
 
         private void OnEnable()
@@ -123,6 +126,14 @@ namespace PixelCrew.Creatures.Hero
             if (context.started)
             {
                 _hero.OnUsePerk();
+            }
+        }
+
+        private void OnToggleFlashLight(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _hero.ToggleFlashLight();
             }
         }
     }

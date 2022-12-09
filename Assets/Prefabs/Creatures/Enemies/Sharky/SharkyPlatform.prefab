@@ -615,7 +615,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -926,6 +926,7 @@ MonoBehaviour:
   _onChanged:
     m_PersistentCalls:
       m_Calls: []
+  IsArmed: 0
 --- !u!114 &151869730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62285affb9e459cb23f42d4c8254d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 8449412459075855721}
   _sounds:
   - _id: Hurt
     _clip: {fileID: 8300000, guid: d3991c9746e6ce648ad9cfe11a9c0723, type: 3}

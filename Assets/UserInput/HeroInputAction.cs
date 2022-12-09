@@ -116,6 +116,15 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseFlashLight"",
+                    ""type"": ""Button"",
+                    ""id"": ""e85f32fe-7009-4af6-879f-4879b82ea90b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -393,6 +402,17 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""UsePerk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f7523e6-a63f-4df5-b35b-801a418ee364"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""UseFlashLight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -433,6 +453,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
         m_Hero_UsePerk = m_Hero.FindAction("UsePerk", throwIfNotFound: true);
+        m_Hero_UseFlashLight = m_Hero.FindAction("UseFlashLight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -502,6 +523,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_UseItem;
     private readonly InputAction m_Hero_UsePerk;
+    private readonly InputAction m_Hero_UseFlashLight;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -516,6 +538,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
         public InputAction @UsePerk => m_Wrapper.m_Hero_UsePerk;
+        public InputAction @UseFlashLight => m_Wrapper.m_Hero_UseFlashLight;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -555,6 +578,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UsePerk.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
                 @UsePerk.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
                 @UsePerk.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UseFlashLight.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
+                @UseFlashLight.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
+                @UseFlashLight.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -589,6 +615,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UsePerk.started += instance.OnUsePerk;
                 @UsePerk.performed += instance.OnUsePerk;
                 @UsePerk.canceled += instance.OnUsePerk;
+                @UseFlashLight.started += instance.OnUseFlashLight;
+                @UseFlashLight.performed += instance.OnUseFlashLight;
+                @UseFlashLight.canceled += instance.OnUseFlashLight;
             }
         }
     }
@@ -623,5 +652,6 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnNextItem(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnUsePerk(InputAction.CallbackContext context);
+        void OnUseFlashLight(InputAction.CallbackContext context);
     }
 }
