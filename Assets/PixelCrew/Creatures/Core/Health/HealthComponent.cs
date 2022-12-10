@@ -10,10 +10,12 @@ namespace PixelCrew.Creatures.Core.Health
         [SerializeField] private int _health;
         [SerializeField] private UnityEvent<GameObject> _onDamage;
         [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] private UnityEvent _onDie;
-        [SerializeField] private HealthChangedEvent _onChanged;
+        [SerializeField] public UnityEvent _onDie;
+        [SerializeField] public HealthChangedEvent _onChanged;
 
         public bool IsArmed;
+
+        public int Health => _health;
 
         public void ModifyHealth(GameObject attacker, int delta)
         {

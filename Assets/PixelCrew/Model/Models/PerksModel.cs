@@ -1,18 +1,19 @@
 ﻿using System;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utilities.Disposables;
-using UnityEngine;
+using PixelCrew.Utilities.TimeManagement;
 
 namespace PixelCrew.Model.Models
 {
     public class PerksModel : IDisposable
     {
         private readonly PlayerData _data;
+        private readonly CompositeDisposable _trash = new();
 
         public readonly StringProperty InterfaceSelection = new();
-        private readonly CompositeDisposable _trash = new();
+
+        public readonly Cooldown Cooldown = new();
 
         public string Used => _data.PerksData.Used.Value;
 
@@ -23,7 +24,7 @@ namespace PixelCrew.Model.Models
                 if (string.IsNullOrEmpty(Used) == true)
                     return false;
 
-                return Used == "double_jump" && GetPerkDefinitionBy(Used).Cooldown.IsReady && InvokeUsed();
+                return Used == "double_jump" && Cooldown.IsReady && InvokeUsed();
             }
         }
 
@@ -34,7 +35,7 @@ namespace PixelCrew.Model.Models
                 if (string.IsNullOrEmpty(Used) == true)
                     return false;
 
-                return Used == "super_shield" && GetPerkDefinitionBy(Used).Cooldown.IsReady && InvokeUsed();
+                return Used == "super_shield" && Cooldown.IsReady && InvokeUsed();
             }
         }
 
@@ -45,13 +46,7 @@ namespace PixelCrew.Model.Models
                 if (string.IsNullOrEmpty(Used) == true)
                     return false;
 
-                var first = Used == "super_throw";
-                var second = GetPerkDefinitionBy(Used).Cooldown.IsReady;
-
-                Debug.Log(first);
-                Debug.Log(second);
-
-                return Used == "super_throw" && GetPerkDefinitionBy(Used).Cooldown.IsReady && InvokeUsed();
+                return Used == "super_throw" && Cooldown.IsReady && InvokeUsed();
             }
         }
 
@@ -62,13 +57,7 @@ namespace PixelCrew.Model.Models
                 if (string.IsNullOrEmpty(Used) == true)
                     return false;
 
-                var first = Used == "dash";
-                var second = GetPerkDefinitionBy(Used).Cooldown.IsReady;
-
-                Debug.Log(first);
-                Debug.Log(second);
-
-                return Used == "dash" && GetPerkDefinitionBy(Used).Cooldown.IsReady && InvokeUsed();
+                return Used == "dash" && Cooldown.IsReady && InvokeUsed();
             }
         }
 
@@ -110,6 +99,7 @@ namespace PixelCrew.Model.Models
 
         public void UsePerk(string selectedPerk)
         {
+            Cooldown.Value = DefinitionsFacade.Instance.PerksRepository.Get(selectedPerk).Cooldown;
             _data.PerksData.Used.Value = selectedPerk;
         }
 
@@ -127,11 +117,6 @@ namespace PixelCrew.Model.Models
         {
             var definition = DefinitionsFacade.Instance.PerksRepository.Get(id);
             return _data.Inventory.IsEnough(definition.Price);
-        }
-
-        private PerkDefinition GetPerkDefinitionBy(string id)
-        {
-            return DefinitionsFacade.Instance.PerksRepository.Get(id);
         }
 
         private bool InvokeUsed()

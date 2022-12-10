@@ -19,29 +19,25 @@ MonoBehaviour:
     _price:
       itemId: Coin
       _count: 1
-    _cooldown:
-      _value: 0
+    _cooldown: 0
   - _id: super_throw
     _icon: {fileID: 21300000, guid: 4927c55d13fa4e745a7857028083a8e6, type: 3}
     _information: This is super throw
     _price:
       itemId: Coin
       _count: 4
-    _cooldown:
-      _value: 4
+    _cooldown: 4
   - _id: super_shield
     _icon: {fileID: 21300000, guid: 67d95c349c2a9f241b93d12b2e25366a, type: 3}
     _information: This is super shield!
     _price:
       itemId: Coin
       _count: 10
-    _cooldown:
-      _value: 5
+    _cooldown: 4
   - _id: dash
     _icon: {fileID: 21300000, guid: 67d95c349c2a9f241b93d12b2e25366a, type: 3}
     _information: This is super Dash!
     _price:
       itemId: Coin
       _count: 5
-    _cooldown:
-      _value: 1
+    _cooldown: 4

@@ -33,7 +33,7 @@ namespace PixelCrew.UI.Widgets
 
         private void OnUsedPerk()
         {
-            CurrentPerkDef.Cooldown.Reset();
+            _session.PerksModel.Cooldown.Reset();
             _timer = 0f;
             _isPerkUsed = true;
         }
@@ -48,19 +48,19 @@ namespace PixelCrew.UI.Widgets
         {
             if (CurrentPerkDef == null)
                 return;
-            
+
             if (_isPerkUsed)
             {
                 _isPerkUsed = false;
-                CurrentPerkDef.Cooldown.Reset();
+                _session.PerksModel.Cooldown.Reset();
                 _fillIcon.fillAmount = 1f;
-                _timer = CurrentPerkDef.Cooldown.Value;
+                _timer = _session.PerksModel.Cooldown.Value;
             }
 
             if (_fillIcon.fillAmount > 0f)
             {
                 _timer -= Time.deltaTime;
-                _fillIcon.fillAmount = _timer / CurrentPerkDef.Cooldown.Value;
+                _fillIcon.fillAmount = _timer / _session.PerksModel.Cooldown.Value;
             }
         }
 
@@ -68,8 +68,6 @@ namespace PixelCrew.UI.Widgets
         {
             string usedPerk = _session.PerksModel.Used;
             SetIcon(string.IsNullOrEmpty(usedPerk) ? null : CurrentPerkDef.Icon);
-
-            CurrentPerkDef?.Cooldown.ResetTimesUp();
         }
 
         private void SetIcon(Sprite sprite)

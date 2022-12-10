@@ -11,7 +11,12 @@ namespace PixelCrew.Utilities.TimeManagement
         private float _timesUp;
 
         public bool IsReady => _timesUp <= Time.time;
-        public float Value => _value;
+
+        public float Value
+        {
+            get => _value;
+            set => _value = value;
+        }
 
         public Cooldown()
         {

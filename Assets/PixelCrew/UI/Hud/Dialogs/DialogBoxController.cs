@@ -97,7 +97,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             _typingCoroutine = StartCoroutine(TypeDialog());
         }
 
-        private void OnCloseComplete()
+        protected virtual void OnCloseComplete()
         {
             _container.SetActive(false);
         }

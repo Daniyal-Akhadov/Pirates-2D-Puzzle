@@ -124,7 +124,6 @@ namespace PixelCrew.Model
             StatsModel = new StatsModel(Data);
             _trash.Retain(StatsModel);
 
-
             _data.Health.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrew.Utilities;
+using UnityEngine;
 
 namespace PixelCrew.Creatures.Hero.Weapons
 {
@@ -9,11 +10,14 @@ namespace PixelCrew.Creatures.Hero.Weapons
         protected Rigidbody2D Rigidbody;
         protected float Direction;
 
+        public SpriteAnimation SpriteAnimation;
+
         protected float Speed => _speed;
 
         private void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
+            SpriteAnimation = GetComponentInChildren<SpriteAnimation>();
         }
 
         private void Start()

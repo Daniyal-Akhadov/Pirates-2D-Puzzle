@@ -1,7 +1,6 @@
 ﻿using PixelCrew.Model;
 using PixelCrew.UI.LevelsLoader;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Components.LevelManagement
 {

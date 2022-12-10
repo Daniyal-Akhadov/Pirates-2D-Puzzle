@@ -17,8 +17,9 @@ namespace PixelCrew.Model.Definitions.Repository
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _information;
         [SerializeField] private ItemWithCount _price;
-        [SerializeField] private Cooldown _cooldown;
-
+        [SerializeField] private float _cooldown;
+        
+        
         public string Id => _id;
 
         public Sprite Icon => _icon;
@@ -27,7 +28,7 @@ namespace PixelCrew.Model.Definitions.Repository
 
         public ItemWithCount Price => _price;
 
-        public Cooldown Cooldown => _cooldown;
+        public float Cooldown => _cooldown;
     }
 
     [Serializable]
