@@ -22,8 +22,7 @@ namespace PixelCrew.Creatures.Hero.Features
             if (_cooldown.IsReady == false || _health.IsArmed == true)
                 return;
 
-            print("I can use it");
-            _renderer.enabled = true;
+            if (_renderer != null) _renderer.enabled = true;
             _health.IsArmed = true;
             StartCoroutine(TurnOfShield(_cooldown.Value));
         }
@@ -32,7 +31,7 @@ namespace PixelCrew.Creatures.Hero.Features
         {
             yield return new WaitForSeconds(duration);
             _health.IsArmed = false;
-            _renderer.enabled = false;
+            if (_renderer != null) _renderer.enabled = false;
         }
     }
 }

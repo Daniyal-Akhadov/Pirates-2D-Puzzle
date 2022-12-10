@@ -13,11 +13,13 @@ namespace PixelCrew.Utilities
             if (container == null)
                 container = new GameObject(ContainerName);
 
-            var result = Object.Instantiate(prefab,
-                position, 
-                Quaternion.identity, 
-                container.transform);
-            
+            var result = Object.Instantiate(
+                prefab,
+                position,
+                Quaternion.identity,
+                container.transform
+            );
+
             return result;
         }
     }

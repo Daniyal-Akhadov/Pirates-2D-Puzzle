@@ -9,8 +9,10 @@ namespace PixelCrew.UI.Hud
     public class HudController : MonoBehaviour
     {
         [SerializeField] private ProgressBarWidget _healthBar;
-      
+
         private GameSession _session;
+
+        private const string Tag = "Hud";
 
         private void Start()
         {
@@ -26,15 +28,15 @@ namespace PixelCrew.UI.Hud
 
         public void OnInGameSettings()
         {
-            WindowUtils.CreateWindow("UI/InGameMenuWindow");
+            WindowUtils.CreateWindow("UI/InGameMenuWindow", Tag);
         }
 
         public void OnDebug()
         {
-            WindowUtils.CreateWindow("UI/FullInventory");
+            WindowUtils.CreateWindow("UI/FullInventory", Tag);
         }
         
-        private void OnHealthChanged(int newValue, int oldValue)
+        private void OnHealthChanged(int newValue, int _)
         {
             var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float)newValue / maxHealth;

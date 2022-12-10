@@ -13,6 +13,9 @@ namespace Prefabs.Creatures.Boss.Patric
 
             var changeLight = animator.GetComponent<ChangeLightsComponent>();
             changeLight.SetColor();
+
+            var bombsSpawner = animator.GetComponent<RandomSpawnerWithDelay>();
+            bombsSpawner.StartSpawning(1f);
         }
     }
 }

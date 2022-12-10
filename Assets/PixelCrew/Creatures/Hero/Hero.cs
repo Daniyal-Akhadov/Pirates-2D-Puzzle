@@ -23,11 +23,13 @@ namespace PixelCrew.Creatures.Hero
     [RequireComponent(typeof(HealthComponent))]
     [RequireComponent(typeof(ProjectileThrower))]
     [RequireComponent(typeof(DashComponent))]
+    [RequireComponent(typeof(GetOffThePlatformComponent))]
     public class Hero : Creature
     {
         [SerializeField] private HeroInputReader _reader;
         [SerializeField] private HeroFlashLight _flashLight;
 
+        private GetOffThePlatformComponent _getOffThePlatform;
         private GameSession _session;
         private HeroCoinScore _coinScore;
         private HeroJumper _jumper;
@@ -51,6 +53,7 @@ namespace PixelCrew.Creatures.Hero
             _thrower = GetComponent<ProjectileThrower>();
             _shield = GetComponentInChildren<ShieldComponent>();
             _dash = GetComponent<DashComponent>();
+            _getOffThePlatform = GetComponent<GetOffThePlatformComponent>();
         }
 
         private void Start()
@@ -135,6 +138,11 @@ namespace PixelCrew.Creatures.Hero
                 _thrower.TryThrow();
             else if (IsSelectedItem(ItemTag.Potion))
                 UsePotion();
+        }
+
+        public void OnGetOffPlatform()
+        {
+            StartCoroutine(_getOffThePlatform.TryGetOff());
         }
 
         public void OnUsePerk()

@@ -41,6 +41,8 @@ namespace PixelCrew.Creatures.Hero
             _input.Hero.UsePerk.started += OnUsePerk;
 
             _input.Hero.UseFlashLight.started += OnToggleFlashLight;
+
+            _input.Hero.GetOffPlatform.started += OnGetOffPlatform;
         }
 
         private void OnEnable()
@@ -73,6 +75,12 @@ namespace PixelCrew.Creatures.Hero
         public void BlockInput()
         {
             gameObject.SetActive(false);
+        }
+
+        private void OnGetOffPlatform(InputAction.CallbackContext context)
+        {
+            if (context.started == true)
+                _hero.OnGetOffPlatform();
         }
 
         private void OnUseItem(InputAction.CallbackContext context)

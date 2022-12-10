@@ -63,4 +63,16 @@ MonoBehaviour:
   - _key: option_answer_yes
     _value: "1. S\xED\r"
   - _key: option_answer_no
-    _value: 2. No
+    _value: "2. No\r"
+  - _key: ---------boss_dialog-------
+    _value: "---------boss_dialog-------\r"
+  - _key: boss_patric_1
+    _value: "Hey! I'll kill you!!!\r"
+  - _key: boss_patric_2
+    _value: "Who are you?) Just a moment, you see your death!\r"
+  - _key: boss_patric_3
+    _value: "We'll see...\r"
+  - _key: boss_patric_die1
+    _value: "Nooooooooooooooooo...\r"
+  - _key: boss_patric_die2
+    _value: Yeeeeeeeeeeeeap!!!

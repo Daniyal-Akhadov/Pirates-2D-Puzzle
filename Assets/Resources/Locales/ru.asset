@@ -67,4 +67,18 @@ MonoBehaviour:
   - _key: option_answer_yes
     _value: "1. \u0414\u0430\r"
   - _key: option_answer_no
-    _value: "2. \u041D\u0435\u0442"
+    _value: "2. \u041D\u0435\u0442\r"
+  - _key: ---------boss_dialog-------
+    _value: "---------boss_dialog-------\r"
+  - _key: boss_patric_1
+    _value: "\u0417\u0434\u043E\u0440\u043E\u0432\u043E! \u0422\u0435\u0431\u0435
+      \u043F\u0440\u0438\u0448\u0451\u043B \u043A\u043E\u043D\u0435\u0446!!!\r"
+  - _key: boss_patric_2
+    _value: "\u0422\u044B \u043A\u0442\u043E \u0442\u0430\u043A\u043E\u0439, \u0432\u043E\u043E\u0431\u0449\u0435?!
+      \u041F\u0440\u043E\u0449\u0430\u0439\u0441\u044F \u0441 \u0436\u0438\u0437\u043D\u044C\u044E!\r"
+  - _key: boss_patric_3
+    _value: "\u0423\u0432\u0438\u0434\u0438\u043C...\r"
+  - _key: boss_patric_die1
+    _value: "\u041D\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0442...\r"
+  - _key: boss_patric_die2
+    _value: "\u0414\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430!!!!"

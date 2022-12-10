@@ -19,7 +19,7 @@ namespace PixelCrew.UI.Windows.InGameMenu
 
         private void OnDestroy()
         {
-            Time.timeScale = _defaultTimeScale;
+            SetDefaultTimeScale();
         }
 
         public void OnShowSettings()
@@ -30,9 +30,19 @@ namespace PixelCrew.UI.Windows.InGameMenu
         public void OnExit()
         {
             SceneManager.LoadScene("MainMenu");
-            
+
             var session = FindObjectOfType<GameSession>();
             Destroy(session.gameObject);
+        }
+
+        public void OnRestart()
+        {
+            SetDefaultTimeScale();
+        }
+
+        private void SetDefaultTimeScale()
+        {
+            Time.timeScale = _defaultTimeScale;
         }
     }
 }

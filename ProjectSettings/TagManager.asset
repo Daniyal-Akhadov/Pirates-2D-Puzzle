@@ -10,6 +10,7 @@ TagManager:
   - PersonalizedDialog
   - SimpleDialog
   - MainUICanvas
+  - Hud
   layers:
   - Default
   - TransparentFX

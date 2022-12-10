@@ -22,8 +22,11 @@ namespace PixelCrew.Creatures.Core.Health
             if (delta < 0 && IsArmed == true)
                 return;
 
+            if (_health <= 0)
+                return;
+
             _health += delta;
-            _onChanged?.Invoke(_health);
+            _onChanged?.Invoke(Mathf.Max(_health, 0));
 
             switch (delta)
             {

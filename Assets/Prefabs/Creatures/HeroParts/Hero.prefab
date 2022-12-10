@@ -702,6 +702,8 @@ GameObject:
   - component: {fileID: 47164895461272091}
   - component: {fileID: 5621534971400265452}
   - component: {fileID: 7642700367643483608}
+  - component: {fileID: 3307896358603740140}
+  - component: {fileID: 7073356075854220144}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -939,6 +941,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7073356075854220144}
+        m_TargetAssemblyTypeName: PixelCrew.Creatures.Hero.Features.ShieldComponent,
+          Assembly-CSharp
+        m_MethodName: TryUse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
@@ -1128,6 +1143,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07259105de344bf9e6a4caecc2e9f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3307896358603740140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840785926518003769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c623f9385e34183824853b45b585bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayLength: 0.47
+  _platformLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &7073356075854220144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840785926518003769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06eda4ab542d4c1796b716854586b210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 4840785926518003756}
+  _cooldown:
+    _value: 0.35
 --- !u!1 &4840785926766551408
 GameObject:
   m_ObjectHideFlags: 0

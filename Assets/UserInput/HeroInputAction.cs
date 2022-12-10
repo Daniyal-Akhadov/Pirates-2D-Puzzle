@@ -125,6 +125,15 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetOffPlatform"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ad53b37-8d77-483e-ac4c-09532999a075"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -413,6 +422,17 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""UseFlashLight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af0f48c2-ead2-4d9f-9151-20ca86681652"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""GetOffPlatform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -454,6 +474,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
         m_Hero_UsePerk = m_Hero.FindAction("UsePerk", throwIfNotFound: true);
         m_Hero_UseFlashLight = m_Hero.FindAction("UseFlashLight", throwIfNotFound: true);
+        m_Hero_GetOffPlatform = m_Hero.FindAction("GetOffPlatform", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -524,6 +545,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_UseItem;
     private readonly InputAction m_Hero_UsePerk;
     private readonly InputAction m_Hero_UseFlashLight;
+    private readonly InputAction m_Hero_GetOffPlatform;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -539,6 +561,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
         public InputAction @UsePerk => m_Wrapper.m_Hero_UsePerk;
         public InputAction @UseFlashLight => m_Wrapper.m_Hero_UseFlashLight;
+        public InputAction @GetOffPlatform => m_Wrapper.m_Hero_GetOffPlatform;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -581,6 +604,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UseFlashLight.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
                 @UseFlashLight.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
                 @UseFlashLight.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
+                @GetOffPlatform.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnGetOffPlatform;
+                @GetOffPlatform.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnGetOffPlatform;
+                @GetOffPlatform.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnGetOffPlatform;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -618,6 +644,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @UseFlashLight.started += instance.OnUseFlashLight;
                 @UseFlashLight.performed += instance.OnUseFlashLight;
                 @UseFlashLight.canceled += instance.OnUseFlashLight;
+                @GetOffPlatform.started += instance.OnGetOffPlatform;
+                @GetOffPlatform.performed += instance.OnGetOffPlatform;
+                @GetOffPlatform.canceled += instance.OnGetOffPlatform;
             }
         }
     }
@@ -653,5 +682,6 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnUseItem(InputAction.CallbackContext context);
         void OnUsePerk(InputAction.CallbackContext context);
         void OnUseFlashLight(InputAction.CallbackContext context);
+        void OnGetOffPlatform(InputAction.CallbackContext context);
     }
 }
