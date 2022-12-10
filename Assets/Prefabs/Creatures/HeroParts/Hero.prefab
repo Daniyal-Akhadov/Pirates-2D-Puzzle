@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 4840785926518003756}
   _cooldown:
-    _value: 0.35
+    _value: 1
 --- !u!1 &4840785926766551408
 GameObject:
   m_ObjectHideFlags: 0

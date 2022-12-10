@@ -15,6 +15,17 @@ namespace PixelCrew.Components.GameObjectBased
 
         public int Stage { get; set; }
 
+        private void OnValidate()
+        {
+            foreach (var setting in _settings)
+            {
+                if (setting.ItemPerBust > setting.BurstCount)
+                {
+                    setting.ItemPerBust = setting.BurstCount;
+                }
+            }
+        }
+
         public void LaunchProjectiles()
         {
             if (_isStop == true)
@@ -46,16 +57,22 @@ namespace PixelCrew.Components.GameObjectBased
             var setting = _settings[Stage];
             var sectorStep = 2 * Mathf.PI / setting.BurstCount;
 
-            for (int i = 0; i < setting.BurstCount; i++)
+            for (int i = 0; i < setting.BurstCount;)
             {
                 if (_isStop == true)
                     yield break;
 
-                float angle = sectorStep * i;
-                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                for (int j = 0; j < setting.ItemPerBust; j++, i++)
+                {
+                    float angle = sectorStep * i;
+                    var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
-                var instance = SpawnUtils.Spawn(setting.Prefab.gameObject, transform.position);
-                instance.GetComponent<DirectionalProjectile>().Launch(direction);
+                    var instance = SpawnUtils.Spawn(setting.Prefab.gameObject, transform.position);
+                    instance.GetComponent<DirectionalProjectile>().Launch(direction);
+
+                    if (i == setting.BurstCount - 1)
+                        yield break;
+                }
 
                 yield return new WaitForSeconds(setting.SpawnDelay);
             }
@@ -65,10 +82,11 @@ namespace PixelCrew.Components.GameObjectBased
     }
 
     [Serializable]
-    public struct CircularProjectileSettings
+    public class CircularProjectileSettings
     {
         [SerializeField] private DirectionalProjectile _prefab;
         [SerializeField] private int _burstCount;
+        [Range(0, 50)] [SerializeField] private int _itemPerBust;
         [SerializeField] private float _spawnDelay;
 
         public DirectionalProjectile Prefab => _prefab;
@@ -76,5 +94,11 @@ namespace PixelCrew.Components.GameObjectBased
         public int BurstCount => _burstCount;
 
         public float SpawnDelay => _spawnDelay;
+
+        public int ItemPerBust
+        {
+            get => _itemPerBust;
+            set => _itemPerBust = value;
+        }
     }
 }

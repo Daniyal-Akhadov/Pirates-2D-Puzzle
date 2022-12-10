@@ -12,6 +12,8 @@ namespace PixelCrew.Utilities.TimeManagement
 
         public bool IsReady => _timesUp <= Time.time;
 
+        public float RemainingTime => Mathf.Max(_timesUp - Time.time, 0f);
+
         public float Value
         {
             get => _value;
