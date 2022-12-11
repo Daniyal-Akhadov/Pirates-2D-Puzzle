@@ -93,11 +93,15 @@ namespace PixelCrew.Creatures.Hero
             bool isPlatform = col.gameObject.IsLayerIn((int)Mathf.Pow(2, LayerMask.NameToLayer(PlatformLayer)));
             var contacts = col.contacts;
 
-            if (isPlatform == false && _isJumpingStarted == false &&
-                contacts.Select(contact => contact.normal)
-                    .Any(normal => Vector3.Angle(Vector3.up, normal) < AvailableAngleForJumping))
+            if (isPlatform == false && _isJumpingStarted == false)
             {
-                StandOnThePlane();
+                foreach (var contact in contacts)
+                {
+                    if (Vector3.Angle(Vector3.up, contact.normal) < AvailableAngleForJumping)
+                    {
+                        StandOnThePlane();
+                    }
+                }
             }
             else if (isPlatform == true && _isJumpingStarted == false)
             {

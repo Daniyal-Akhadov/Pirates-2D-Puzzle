@@ -890,6 +890,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: 79cfe40914d028042a5d3853315d438a, type: 3}
   _spawnPoint: {fileID: 4241471035695359295}
   _mergeToPoint: 0
+  _usePool: 1
 --- !u!1 &7770772019092760245
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,3 +938,4 @@ MonoBehaviour:
   _target: {fileID: 3417455578732530064, guid: d0ebfe9c486a63e4a87183e315709075, type: 3}
   _spawnPoint: {fileID: 2874702566512263519}
   _mergeToPoint: 1
+  _usePool: 1

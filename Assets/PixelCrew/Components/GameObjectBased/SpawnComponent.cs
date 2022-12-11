@@ -1,4 +1,5 @@
 using PixelCrew.Utilities;
+using PixelCrew.Utilities.ObjectPool;
 using UnityEngine;
 
 namespace PixelCrew.Components.GameObjectBased
@@ -8,6 +9,7 @@ namespace PixelCrew.Components.GameObjectBased
         [SerializeField] private GameObject _target;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private bool _mergeToPoint;
+        [SerializeField] private bool _usePool;
 
         public void SetTarget(GameObject target)
         {
@@ -22,13 +24,16 @@ namespace PixelCrew.Components.GameObjectBased
 
         public GameObject SpawnInstance()
         {
-            var newObject = SpawnUtils.Spawn(_target, _spawnPoint.position);
-            newObject.transform.localScale = _spawnPoint.lossyScale;
-            newObject.SetActive(true);
-            if (_mergeToPoint == true)
-                newObject.transform.parent = _spawnPoint;
+            var instance = _usePool
+                ? Pool.Instance.Get(_target, _spawnPoint.position)
+                : SpawnUtils.Spawn(_target, _spawnPoint.position);
 
-            return newObject;
+            instance.transform.localScale = _spawnPoint.lossyScale;
+            instance.SetActive(true);
+            if (_mergeToPoint == true)
+                instance.transform.parent = _spawnPoint;
+
+            return instance;
         }
     }
 }

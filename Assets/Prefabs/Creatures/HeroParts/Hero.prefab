@@ -320,6 +320,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: 0e656e2b5646f8c4c9077aaf36e57b4b, type: 3}
   _spawnPoint: {fileID: 5025014832048318722}
   _mergeToPoint: 0
+  _usePool: 0
 --- !u!1 &4210989667601934493
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +478,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: 31e5f696598c6b64d9e8d73d695779d5, type: 3}
   _spawnPoint: {fileID: 4840785927812178193}
   _mergeToPoint: 0
+  _usePool: 1
 --- !u!1 &4840785926513902321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1286,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: e15e75d9be7ecb04ba1b2e484f694991, type: 3}
   _spawnPoint: {fileID: 4840785926766551409}
   _mergeToPoint: 0
+  _usePool: 1
 --- !u!1 &4840785927300144667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1335,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: 79cfe40914d028042a5d3853315d438a, type: 3}
   _spawnPoint: {fileID: 4840785927492283387}
   _mergeToPoint: 0
+  _usePool: 1
 --- !u!1 &4840785927492283386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1415,7 @@ MonoBehaviour:
   _target: {fileID: 3818121000757496548, guid: 007d7c601adaf1846bb439a5956ca9d2, type: 3}
   _spawnPoint: {fileID: 4840785927094212129}
   _mergeToPoint: 0
+  _usePool: 1
 --- !u!1 &4840785927812178192
 GameObject:
   m_ObjectHideFlags: 0
