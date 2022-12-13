@@ -27,6 +27,7 @@ namespace PixelCrew.Creatures.Boss
             
             _animator.SetBool(IsFlood, false);
         }
+        
         private IEnumerator AnimateFlooding(float delay = 0f)
         {
             yield return new WaitForSeconds(delay);

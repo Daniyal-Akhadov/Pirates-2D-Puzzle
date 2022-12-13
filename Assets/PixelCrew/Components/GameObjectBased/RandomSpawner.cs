@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using PixelCrew.Utilities;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace PixelCrew.Components.GameObjectBased
@@ -24,6 +28,9 @@ namespace PixelCrew.Components.GameObjectBased
             TryStopRoutine();
         }
 
+
+#if UNITY_EDITOR
+
         private void OnDrawGizmosSelected()
         {
             var position = transform.position;
@@ -38,6 +45,7 @@ namespace PixelCrew.Components.GameObjectBased
             Handles.color = new Color(1f, 1f, 1f, 0.1f);
             Handles.DrawSolidArc(position, Vector3.forward, rightBoundary, _sectorAngle, 1);
         }
+#endif
 
         private void OnDisable()
         {
@@ -57,7 +65,7 @@ namespace PixelCrew.Components.GameObjectBased
                 Spawn(item);
             }
         }
-        
+
         private IEnumerator StartSpawn(GameObject[] items)
         {
             for (int i = 0; i < items.Length; i++)

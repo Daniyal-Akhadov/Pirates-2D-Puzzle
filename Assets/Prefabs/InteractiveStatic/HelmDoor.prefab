@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5927196389954322959}
   - component: {fileID: 6625471810260842752}
   - component: {fileID: 8075712985369169664}
+  - component: {fileID: 3387361474447031066}
   m_Layer: 6
   m_Name: Helm
   m_TagString: Untagged
@@ -83,9 +84,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PixelCrew.Creatures.Hero.HeroInputReader, Assembly-CSharp
-        m_MethodName: BlockInput
+      - m_Target: {fileID: 3387361474447031066}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Input.PlayerInputControlComponent,
+          Assembly-CSharp
+        m_MethodName: Block
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -108,7 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8075712984601902608}
+  _state: 1
   _animationKey: is_open
+  _updateOnStart: 0
 --- !u!114 &4387191212109594566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 8075712985762904807}
   _controller: {fileID: 0}
+  _delay: 0
+  _onDelay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5927196389954322959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,9 +246,10 @@ MonoBehaviour:
     TimesUp:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PixelCrew.Hero.HeroInputReader, Assembly-CSharp
-          m_MethodName: AllowInput
+        - m_Target: {fileID: 3387361474447031066}
+          m_TargetAssemblyTypeName: PixelCrew.Components.Input.PlayerInputControlComponent,
+            Assembly-CSharp
+          m_MethodName: Allow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -335,6 +344,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+--- !u!114 &3387361474447031066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075712984456707648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf6f5c84931441ea10fd63a35c8be19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8075712985312631065
 GameObject:
   m_ObjectHideFlags: 0

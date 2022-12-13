@@ -12,21 +12,25 @@ namespace PixelCrew.Components
 
         public void Teleport(GameObject target)
         {
-            StartCoroutine(AnimateTeleport(target));
+            StartCoroutine(AnimateTeleport(target, _destination.position));
         }
 
-        private IEnumerator AnimateTeleport(GameObject target)
+        private IEnumerator AnimateTeleport(GameObject target, Vector3 position)
         {
             var renderer = target.GetComponentInChildren<SpriteRenderer>();
             var input = target.GetComponentInChildren<HeroInputReader>();
 
-            input.BlockInput();
+            if (input != null)
+                input.BlockInput();
+
             yield return SetAlpha(renderer, 0f);
             target.SetActive(false);
 
-            yield return SmoothlyMove(target.transform);
+            yield return SmoothlyMove(target.transform, position);
 
-            input.AllowInput();
+            if (input != null)
+                input.AllowInput();
+
             target.SetActive(true);
             yield return SetAlpha(renderer, 1f);
         }
@@ -46,14 +50,14 @@ namespace PixelCrew.Components
             }
         }
 
-        private IEnumerator SmoothlyMove(Transform target)
+        private IEnumerator SmoothlyMove(Transform target, Vector3 destination)
         {
             float timer = 0f;
 
-            while (target.position != _destination.position)
+            while (target.position != destination)
             {
                 timer += Time.deltaTime;
-                target.position = Vector3.MoveTowards(target.position, _destination.position, timer / _moveTime);
+                target.position = Vector3.MoveTowards(target.position, destination, timer / _moveTime);
                 yield return null;
             }
         }

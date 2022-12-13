@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
@@ -23,9 +24,9 @@ namespace PixelCrew.Model
 
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
-        
+
         public FullInventoryModel FullInventoryModel { get; private set; }
-        
+
         public PerksModel PerksModel { get; private set; }
 
         public StatsModel StatsModel { get; private set; }
@@ -114,7 +115,7 @@ namespace PixelCrew.Model
         {
             FullInventoryModel = new FullInventoryModel(Data);
             _trash.Retain(FullInventoryModel);
-            
+
             QuickInventory = new QuickInventoryModel(Data, this);
             _trash.Retain(QuickInventory);
 
@@ -127,15 +128,22 @@ namespace PixelCrew.Model
             _data.Health.Value = (int)StatsModel.GetValue(StatId.Hp);
         }
 
-        private void LoadHud()
+        private void LoadUI()
         {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+            LoadOnScreenControls();
+        }
+
+        [Conditional("USE_ONESCREEN_CONTROLS")]
+        private void LoadOnScreenControls()
+        {
+            SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
         }
 
         private void StartSession(string defaultCheckPoint)
         {
             SetChecked(defaultCheckPoint);
-            LoadHud();
+            LoadUI();
             SpawnHero();
         }
 

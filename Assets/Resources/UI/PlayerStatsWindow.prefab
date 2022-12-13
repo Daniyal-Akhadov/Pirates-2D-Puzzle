@@ -342,7 +342,7 @@ RectTransform:
   - {fileID: 1720004535970420163}
   - {fileID: 570355661312133812}
   m_Father: {fileID: 570355661945590318}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -710,7 +710,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 570355661945590318}
+  m_Father: {fileID: 570355661641207608}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -933,6 +933,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 570355661626137194}
   - {fileID: 570355661945590318}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1007,11 +1008,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 570355661626137194}
   - {fileID: 570355660897792278}
   - {fileID: 3019290290486642256}
   m_Father: {fileID: 570355661641207608}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1440,7 +1440,7 @@ RectTransform:
   m_Children:
   - {fileID: 3019290290545039992}
   m_Father: {fileID: 570355661945590318}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -22.25302, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2000,6 +2000,14 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 773884891588734123, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 773884891588734123, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1167804978084712949, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2109,6 +2117,18 @@ PrefabInstance:
       value: 'Upgrade
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201563363762653991, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
+      propertyPath: m_fontSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201563363762653991, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201563363762653991, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705eafa21580cc547a0a751a4b335abc, type: 3}

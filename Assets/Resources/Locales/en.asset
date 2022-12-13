@@ -75,4 +75,16 @@ MonoBehaviour:
   - _key: boss_patric_die1
     _value: "Nooooooooooooooooo...\r"
   - _key: boss_patric_die2
-    _value: Yeeeeeeeeeeeeap!!!
+    _value: "Yeeeeeeeeeeeeap!!!\r"
+  - _key: -------------------------------
+    _value: "-------------------------------\r"
+  - _key: level_up
+    _value: "Update\r"
+  - _key: hp
+    _value: "Hp\r"
+  - _key: speed
+    _value: "Speed\r"
+  - _key: range_damage
+    _value: "Range Damage\r"
+  - _key: critical_damage
+    _value: Critical Damage

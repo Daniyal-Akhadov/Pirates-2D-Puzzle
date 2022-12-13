@@ -35,6 +35,9 @@ namespace PixelCrew.UI.Windows.PlayerStats
 
             if (_session != null)
                 UpdateView();
+
+            Debug.Log("Set data");
+            Debug.Log("Some desing");
         }
 
         private void UpdateView()
@@ -50,7 +53,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
             var nextLevel = currentLevel + 1;
             var nextLevelValue = statsModel.GetValue(_data.Id, nextLevel);
             var increaseValue = nextLevelValue - currentLevelValue;
-            _increaseValue.text = $"+ {increaseValue}";
+            _increaseValue.text = $"+{increaseValue}";
             _increaseValue.gameObject.SetActive(increaseValue > 0);
 
             int maxLevels = DefinitionsFacade.Instance.PlayerDefinitions.GetStat(_data.Id).Levels.Length - 1;

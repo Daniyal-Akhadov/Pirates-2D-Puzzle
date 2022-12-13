@@ -20,11 +20,15 @@ namespace PixelCrew.UI.Windows.Inventory
 
         private readonly CompositeDisposable _trash = new();
         private PredefinedDataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
+        
+        private CanvasGroup _canvasGroup;
+        public CanvasGroup CanvasGroup => _canvasGroup;
 
         private void Start()
         {
             _quickInventoryController = FindObjectOfType<QuickInventoryController>();
             _session = FindObjectOfType<GameSession>();
+            _canvasGroup = GetComponentInChildren<CanvasGroup>();
             _dataGroup = new PredefinedDataGroup<InventoryItemData, InventoryItemWidget>(_container);
             _trash.Retain(_session.FullInventoryModel.Subscribe(Rebuild));
             _trash.Retain(_session.FullInventoryModel.Subscribe(OnInventoryChanged));

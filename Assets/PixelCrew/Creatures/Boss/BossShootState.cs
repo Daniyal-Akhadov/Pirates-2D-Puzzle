@@ -1,7 +1,7 @@
 using PixelCrew.Components.GameObjectBased;
 using UnityEngine;
 
-namespace Prefabs.Creatures.Boss.Patric
+namespace PixelCrew.Creatures.Boss
 {
     public class BossShootState : StateMachineBehaviour
     {
@@ -20,8 +20,6 @@ namespace Prefabs.Creatures.Boss.Patric
             
             _spawner = animator.GetComponent<CircularProjectileSpawner>();
             _spawner.LaunchProjectiles();
-            
-   
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

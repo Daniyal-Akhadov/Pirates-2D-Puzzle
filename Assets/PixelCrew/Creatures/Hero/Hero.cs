@@ -126,7 +126,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void NextItem()
         {
-            if (_fullInventoryController.gameObject.activeSelf == true)
+            if (_fullInventoryController.CanvasGroup.enabled == false)
                 _session.FullInventoryModel.SetNextItem();
             else
                 _session.QuickInventory.SetNextItem();

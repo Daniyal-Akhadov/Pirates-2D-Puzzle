@@ -81,4 +81,16 @@ MonoBehaviour:
   - _key: boss_patric_die1
     _value: "\u041D\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0435\u0442...\r"
   - _key: boss_patric_die2
-    _value: "\u0414\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430!!!!"
+    _value: "\u0414\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430!!!!\r"
+  - _key: -------------------------------
+    _value: "-------------------------------\r"
+  - _key: level_up
+    _value: "\u041F\u0440\u0438\u043D\u044F\u0442\u044C\r"
+  - _key: hp
+    _value: "\u0425\u043F\r"
+  - _key: speed
+    _value: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C\r"
+  - _key: range_damage
+    _value: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439 \u0443\u0440\u043E\u043D\r"
+  - _key: critical_damage
+    _value: "\u041A\u0440\u0438\u0442. \u0443\u0440\u043E\u043D"

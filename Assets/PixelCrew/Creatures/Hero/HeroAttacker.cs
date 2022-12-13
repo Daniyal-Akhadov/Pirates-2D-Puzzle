@@ -1,17 +1,15 @@
-﻿using PixelCrew.Components.Audio;
-using PixelCrew.Creatures.Core;
+﻿using PixelCrew.Creatures.Core;
 using PixelCrew.Creatures.Core.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions.Player;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace PixelCrew.Creatures.Hero
 {
     public class HeroAttacker : AttackComponent
     {
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _unarmed;
+        [SerializeField] private RuntimeAnimatorController _armed;
+        [SerializeField] private RuntimeAnimatorController _unarmed;
         [SerializeField] private ModifyHealthComponent _modifyHealth;
 
         private GameSession _session;
